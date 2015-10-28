@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dingmei.dao.mapper.DataGroupMapper">
+
+    <select id="loadDataGroup" resultType="com.dingmei.dao.entity.DataGroup" parameterType="map">
+        SELECT id,groupId,groupName
+        FROM dm_dataGroup
+        WHERE groupId = #{groupId}
+    </select>
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dingmei.dao.mapper.DataTypeMapper">
+
+    <select id="queryDataTypeByGroupId" parameterType="map" resultType="com.dingmei.dao.entity.DataType">
+      SELECT id,groupId,dataType,typeName,timeStyle,colName,colKey,lineKey
+      FROM dm_dataType
+      WHERE groupId = #{groupId}
+    </select>
+</mapper>
