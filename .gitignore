@@ -9,3 +9,9 @@ webapps/
 *.iml
 *.ipr
 *.iws
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
