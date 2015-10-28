@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dingmei.dao.mapper.MenuMapper">
+    <select id="queryAll" resultType="com.dingmei.dao.entity.Menu">
+        SELECT id,name,menuType,path,parent
+        FROM dm_menu
+    </select>
+
+    <select id="queryMenus" resultType="com.dingmei.dao.entity.Menu" parameterType="map">
+        SELECT id,name,menuType,path,parent
+        FROM dm_menu
+        WHERE parent = #{parent}
+    </select>
+</mapper>

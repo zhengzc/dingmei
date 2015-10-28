@@ -1,41 +1,24 @@
 jQuery(document).ready(function($){
 
-    var tree = [
-        {
-            text: "Parent 1",
-            nodes: [
-                {
-                    text: "Child 1",
-                    nodes: [
-                        {
-                            text: "Grandchild 1"
-                        },
-                        {
-                            text: "Grandchild 2"
-                        }
-                    ]
-                },
-                {
-                    text: "Child 2"
-                }
-            ]
-        },
-        {
-            text: "Parent 2"
-        },
-        {
-            text: "Parent 3"
-        },
-        {
-            text: "Parent 4"
-        },
-        {
-            text: "Parent 5"
-        }
-    ];
+    $.post(basepath+"/index/leftTree",{},function(data){
+        $("#leftMenu").treeview({
+            data:data,
+            showBorder:false,
+            onNodeSelected:function(event,data){
+                if("c" == data.urlType){
+                    window.location.href = basepath+data.url+"&selectNode="+data.nodeId;
+                }else if("l" == data.urlType){
+                    window.location.href = basepath+data.url+"?selectNode="+data.nodeId;
+                }else{
 
-    $("#leftMenu").treeview({
-        data:tree,
-        showBorder:false
-    });
+                }
+            }
+        });
+
+        $('#leftMenu').treeview('expandAll');
+
+        if(selectNode != -1){
+            $("#leftMenu").treeview("selectNode",[ selectNode, { silent: true } ]);
+        }
+    })
 })

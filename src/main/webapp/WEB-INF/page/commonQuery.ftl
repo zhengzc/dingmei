@@ -2,7 +2,9 @@
 <@baseHtml localJsFiles=["page/commonQuery.js"] remoteJsFiles=[] localCssFiles=[]>
     <script type="text/javascript">
         line = ${line};
+        selectNode = parseInt(${selectNode!"0"});
     </script>
+
     <div id="chart">
 
     </div>

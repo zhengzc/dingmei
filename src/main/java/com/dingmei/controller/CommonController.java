@@ -164,6 +164,10 @@ public class CommonController {
         mv.getModel().put("title",title);
         mv.getModel().put("tables",commonTableVOs);
         mv.getModel().put("line", JSONObject.toJSONString(line));
+
+        //处理一下选中节点
+        String selectNode = request.getParameter("selectNode");
+        mv.getModel().put("selectNode",selectNode != null ? selectNode : -1);
         return mv;
     }
 
