@@ -9,6 +9,6 @@
 
 #mvn eclipse最佳实践
 * 配置mvn环境
-* 项目根目录执行 mvn eclipse:clean eclipse:eclipse 会自动生成eclipse项目的配置文件
+* 项目根目录执行 mvn eclipse:clean eclipse:eclipse -Dwtpversion=2.0 会自动生成eclipse项目的配置文件
 * 将项目导入eclipse
 * 如果eclispe没有配置maven_home需要手动配置maven_home
