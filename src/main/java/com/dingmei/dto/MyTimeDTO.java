@@ -107,15 +107,15 @@ public class MyTimeDTO {
     @Override
     public String toString(){
         if(("yyyy.MM.dd").equals(timeStyle)){
-            return year+"."+month+"."+day;
+            return String.format("%d.%d.%d",year,month,day);
         }else if("MM".equals(timeStyle)){
-            return month+"月份";
+            return String.format("%d月份",month);
         }else if(("yyyy.MM").equals(timeStyle)){
-            return year+"."+month;
+            return String.format("%d.%d",year,month);
         }else if(("quarter").equals(timeStyle)){
-            return year+"第"+quarter+"季度";
+            return String.format("%d年第%d季度",year,quarter);
         }else if(("yyyy.MM.week").equals(timeStyle)){
-            return year+"."+month+".第"+week+"周";
+            return String.format("%d.%d.第%d周",year,month,week);
         }else{
             return "*";
         }

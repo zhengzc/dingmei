@@ -23,7 +23,7 @@
     <!-- 	插件仓库 -->
     <repositories>
 
-        <repository>
+        <!--<repository>
             <id>ibiblio.org</id>
             <name>ibiblio</name>
             <url>http://mirrors.ibiblio.org/maven2</url>
@@ -33,7 +33,7 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-        </repository>
+        </repository>-->
 
     </repositories>
 

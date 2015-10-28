@@ -35,13 +35,17 @@ public class SimpleTest {
     @Test
     public void testMyTimeDTO(){
         MyTimeDTO n1 = new MyTimeDTO();
-        n1.setDay(3);
+        n1.setTimeStyle("quarter");
+        n1.setYear(2019);
         n1.setQuarter(2);
 
         MyTimeDTO n2 = new MyTimeDTO();
-        n2.setDay(3);
+        n2.setTimeStyle("quarter");
+        n2.setYear(3);
         n2.setMonth(null);
         n2.setQuarter(3);
+
+        System.out.println(n1);
 
         System.out.println(n1.equals(n2));
     }
