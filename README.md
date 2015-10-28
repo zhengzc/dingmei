@@ -7,3 +7,8 @@
         其中colName设置为common的时候表示显示总数,环比,同比的通用模式，不必设置后面两个字段。
 * dm_data表，请注意表示数量的字段total，param*必须为数字格式，否则会出现转换异常。请注意保证数据的一致性，不要缺失。
 
+#mvn eclipse最佳实践
+* 配置mvn环境
+* 项目根目录执行 mvn eclipse:clean eclipse:eclipse 会自动生成eclipse项目的配置文件
+* 将项目导入eclipse
+* 如果eclispe没有配置maven_home需要手动配置maven_home
