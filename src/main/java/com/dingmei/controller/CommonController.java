@@ -26,6 +26,11 @@ public class CommonController {
     @Resource
     private MacroService macroService;
 
+    /**
+     * 通用查询 构建图片和折线图
+     * @param request
+     * @return
+     */
     @RequestMapping("/page")
     public ModelAndView page(WebRequest request){
         String groupId = request.getParameter("id");
@@ -88,7 +93,7 @@ public class CommonController {
         line.put("subTitle", title);
         line.put("yAxisTitle",title);
 
-        Set<String> categories = new HashSet<String>();
+        Set<MyTimeDTO> categories = new HashSet<MyTimeDTO>();
         List<Object> series = new ArrayList<Object>();
 
         if(dataTypes.size() > 1){//多个表格的配置方式
@@ -100,15 +105,15 @@ public class CommonController {
                 oneLine.put("name",dataType.getTypeName());
 
                 List<Double> oneLineData = new ArrayList<Double>();
-                Map<String,String> timeDatas = this.macroService.queryDataOneColumn(dataType.getDataType(),dataType.getTimeStyle(),lineKeyStr);
+                Map<MyTimeDTO,String> timeDatas = this.macroService.queryDataOneColumn(dataType.getDataType(),dataType.getTimeStyle(),lineKeyStr);
 
                 if(timeDatas.size() > 0 && i == 0){
-                    for(Map.Entry<String,String> entry : timeDatas.entrySet()){
+                    for(Map.Entry<MyTimeDTO,String> entry : timeDatas.entrySet()){
                         categories.add(entry.getKey());
                     }
                 }
 
-                for(String x : categories){
+                for(MyTimeDTO x : categories){
                     if(timeDatas.containsKey(x)){
                         oneLineData.add(Double.valueOf(timeDatas.get(x)));
                     }else{
@@ -132,16 +137,16 @@ public class CommonController {
                 Map<String,Object> oneLine = new HashMap<String, Object>();
                 oneLine.put("name",columnKeyName.get(lineKey));
 
-                Map<String,String> timeDatas = this.macroService.queryDataOneColumn(dataType.getDataType(),dataType.getTimeStyle(),lineKey);
+                Map<MyTimeDTO,String> timeDatas = this.macroService.queryDataOneColumn(dataType.getDataType(),dataType.getTimeStyle(),lineKey);
                 List<Double> oneLineData = new ArrayList<Double>();
 
                 if(timeDatas.size() > 0 && i == 0){
-                    for(Map.Entry<String,String> entry : timeDatas.entrySet()){
+                    for(Map.Entry<MyTimeDTO,String> entry : timeDatas.entrySet()){
                         categories.add(entry.getKey());
                     }
                 }
 
-                for(String x : categories){
+                for(MyTimeDTO x : categories){
                     if(timeDatas.containsKey(x)){
                         oneLineData.add(Double.valueOf(timeDatas.get(x)));
                     }else{
@@ -155,7 +160,11 @@ public class CommonController {
             }
         }
 
-        line.put("xAxisCategories",categories);
+        List<String> categoriesStr = new ArrayList<String>();
+        for(MyTimeDTO dto : categories){
+            categoriesStr.add(dto.toString());
+        }
+        line.put("xAxisCategories",categoriesStr);
         line.put("series",series);
 
 

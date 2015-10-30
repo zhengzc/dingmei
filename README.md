@@ -17,3 +17,15 @@
 * 项目根目录执行 mvn eclipse:clean eclipse:eclipse -Dwtpversion=2.0 会自动生成eclipse项目的配置文件
 * 将项目导入eclipse
 * 如果eclispe没有配置maven_home需要手动配置maven_home
+
+#使用springSecurity控制访问 SpringEl表达式配置角色访问
+* hasRole('role')	返回 true 如果当前主体拥有特定角色。
+* hasAnyRole([role1,role2])	返回 true 如果当前主体拥有任何一个提供的角色 （使用逗号分隔的字符串队列）
+* principal	允许直接访问主体对象，表示当前用户
+* authentication	允许直接访问当前 Authentication对象 从SecurityContext中获得
+* permitAll	一直返回true
+* denyAll	一直返回false
+* isAnonymous()	如果用户是一个匿名登录的用户 就会返回 true
+* isRememberMe()	如果用户是通过remember-me 登录的用户 就会返回 true
+* isAuthenticated()	如果用户不是匿名用户就会返回true
+* isFullyAuthenticated()	如果用户不是通过匿名也不是通过remember-me登录的用户时， 就会返回true。

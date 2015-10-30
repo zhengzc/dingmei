@@ -6,7 +6,10 @@ import com.dingmei.dao.entity.Menu;
 import com.dingmei.service.macro.MenuService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.*;
@@ -20,6 +23,25 @@ public class IndexPageController {
 
     @Resource
     private MenuService menuService;
+
+    /**
+     * 登陆
+     * @return
+     */
+    @RequestMapping("/login")
+    public ModelAndView login(WebRequest request){
+        ModelAndView mv = new ModelAndView();
+
+        String error = request.getParameter("error");
+        if(error != null){
+            mv.getModel().put("error",true);
+        }
+
+        mv.setViewName("/page/login.ftl");
+        return mv;
+    }
+
+
     /**
      * 左侧树
      * @return

@@ -3,7 +3,7 @@ package com.dingmei.dto;
 /**
  * Created by ying on 15/10/27.
  */
-public class MyTimeDTO {
+public class MyTimeDTO implements Comparable<MyTimeDTO>{
     private String timeStyle;
     private Integer year;
     private Integer month;
@@ -118,6 +118,41 @@ public class MyTimeDTO {
             return String.format("%d.%d.第%d周",year,month,week);
         }else{
             return "*";
+        }
+    }
+
+    @Override
+    public int compareTo(MyTimeDTO o) {
+        if(this.getYear() != null && o.getYear() != null && this.getYear() > o.getYear()){
+            return 1;
+        }else if(this.getYear() != null && o.getYear() != null && this.getYear() < o.getYear()){
+            return -1;
+        }else{
+            if(this.getMonth() != null && o.getMonth() != null && this.getMonth() > o.getMonth()){
+                return 1;
+            }else if(this.getMonth() != null && o.getMonth() != null && this.getMonth() < o.getMonth()){
+                return -1;
+            }else{
+                if(this.getQuarter() != null && o.getQuarter() != null && this.getQuarter() > o.getQuarter()){
+                    return 1;
+                }else if(this.getQuarter() != null && o.getQuarter() != null && this.getQuarter() < o.getQuarter()){
+                    return -1;
+                }else{
+                    if(this.getWeek() != null && o.getWeek() != null && this.getWeek() > o.getWeek()){
+                        return 1;
+                    }else if(this.getWeek() != null && o.getWeek() != null && this.getWeek() < o.getWeek()){
+                        return -1;
+                    }else{
+                        if(this.getDay() != null && o.getDay() != null && this.getDay() > o.getDay()){
+                            return 1;
+                        }else if(this.getDay() != null && o.getDay() != null && this.getDay() < o.getDay()){
+                            return -1;
+                        }else{
+                            return 0;
+                        }
+                    }
+                }
+            }
         }
     }
 }

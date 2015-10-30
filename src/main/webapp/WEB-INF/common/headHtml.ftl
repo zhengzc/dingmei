@@ -30,12 +30,15 @@
 	<#--<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>-->
     <script src="${basepath}/resources/bootstrap3.0.3/js/bootstrap.min.js" type="text/javascript"></script>
 
+    <!--[if lte IE 8]>
+    <!--<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>-->
+    <script src="${basepath}/resources/plugin/Respond1.4.2.min.js" type="text/javascript"></script>
+    <![endif]-->
+
 	<#-- jquery cookie文件 -->
-	<script src="${basepath}/resources/bootstrap3.0.3/js/jquery.cookie.js" type="text/javascript"></script>
-	
-<#-- 	本地全局css -->
-	<link rel="stylesheet" href="${basepath}/resources/css/global.css"/>
-	
+	<script src="${basepath}/resources/plugin/jquery/jquery.cookie.js" type="text/javascript"></script>
+    <#--jquery form-->
+    <script src="${basepath}/resources/plugin/jquery/jquery.form.js" type="text/javascript"></script>
 	<#list localCssFiles as localCss>
 		<link rel="stylesheet" href="${basepath}/resources/css/${localCss}"/>
 	</#list>

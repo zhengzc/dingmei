@@ -15,6 +15,9 @@
         <title>${title}</title>
 
         <@headHtml localJsFiles = localJsFiles remoteJsFiles = remoteJsFiles localCssFiles = localCssFiles>
+
+            <#-- 	本地全局css -->
+            <link rel="stylesheet" href="${basepath}/resources/css/global.css"/>
             <#--<link rel="stylesheet" type="text/css" href="${basepath}/resources/plugin/datagrid/minified/jquery.bs_grid.min.css">-->
             <#--<script type="text/javascript" src="${basepath}/resources/plugin/datagrid/minified/jquery.bs_grid.min.js"></script>-->
             <#--<script type="text/javascript" src="${basepath}/resources/plugin/datagrid/minified/localization/en.min.js"></script>-->
@@ -43,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="${basepath}/index">宏观经济</a>
+                <a class="navbar-brand" href="${basepath}/index">dingmei</a>
             </div>
 
         <#-- Collect the nav links, forms, and other content for toggling -->
@@ -73,10 +76,10 @@
                 <input type="text" class="form-control" placeholder="Search">
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+            </form> -->
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
-              <li class="dropdown">
+              <li><a href="/j_spring_security_logout">注销</a></li>
+              <#--<li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
@@ -85,9 +88,8 @@
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a></li>
                 </ul>
-              </li>
+              </li>-->
             </ul>
-             -->
 
             </div><#-- /.navbar-collapse -->
         </div>

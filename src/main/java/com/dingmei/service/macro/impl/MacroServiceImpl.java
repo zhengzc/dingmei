@@ -11,9 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by ying on 15/10/27.
@@ -44,8 +42,8 @@ public class MacroServiceImpl implements MacroService{
     }
 
     @Override
-    public Map<String, String> queryDataOneColumn(String dataType,String timeStyle, String column) {
-        Map<String, String> retMap = new HashMap<String, String>();
+    public TreeMap<MyTimeDTO, String> queryDataOneColumn(String dataType,String timeStyle, String column) {
+        TreeMap<MyTimeDTO, String> retMap = new TreeMap<MyTimeDTO, String>();
 
         List<Map<String,Object>> rets = this.dataMapper.queryDataCommon(dataType,column);
         for(Map<String,Object> map : rets){
@@ -58,7 +56,7 @@ public class MacroServiceImpl implements MacroService{
             myTimeDTO.setWeek((Integer)map.get("week"));
             myTimeDTO.setYear((Integer)map.get("year"));
 
-            retMap.put(myTimeDTO.toString(), (String) map.get(column));
+            retMap.put(myTimeDTO, (String) map.get(column));
         }
 
 
