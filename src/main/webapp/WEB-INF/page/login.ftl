@@ -41,7 +41,7 @@
     <div class="aw-login-box">
         <div class="mod-body clearfix">
             <div class="content pull-left">
-                <h1 class="logo"><a href=""><img width="97" src="https://www.wegene.com/static/css/wegene/img/login_logo.png" /></a></h1>
+                <h1 class="logo"><a href=""><img width="97" src="/resources/img/login_logo.png" /></a></h1>
                 <#--<h2>欢迎来到</h2>-->
                 <form id="login_form" method="post" action="/j_spring_security_check">
                     <input type="hidden" name="return_url" value="" />

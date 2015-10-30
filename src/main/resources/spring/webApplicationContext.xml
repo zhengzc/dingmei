@@ -22,6 +22,7 @@
     <mvc:resources mapping="/resources/plugin/**" location="/resources/plugin/" />
 	<mvc:resources mapping="/resources/css/**" location="/resources/css/" />
 	<mvc:resources mapping="/resources/bootstrap3.0.3/**" location="/resources/bootstrap3.0.3/" />
+    <mvc:resources mapping="/resources/img/**" location="/resources/img/" />
 	
 	<bean id="freemarkerResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 <!-- 		<property name="suffix" value=".html" /> -->
