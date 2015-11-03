@@ -23,15 +23,7 @@
 		</encoder>
 	</appender>-->
 	
-<!--     <logger name="com.travelzen.b2g.thrift" level="INFO" additivity="false">   -->
-<!-- 	    <appender-ref ref="stdout"/>   -->
-<!-- 	</logger>  -->
-	
-<!-- 	<logger name="com.travelzen.b2g.internal.inter.flight.thriftclient" level="INFO" additivity="false">   -->
-<!-- 	    <appender-ref ref="stdout"/>   -->
-<!-- 	</logger>  -->
-    
-<!--     <logger name="com.travelzen" level="DEBUG" additivity="false">   -->
+<!--     <logger name="com.zzc" level="DEBUG" additivity="false">   -->
 <!-- 	    <appender-ref ref="stdout"/>   -->
 <!-- 	</logger>    -->
     
