@@ -23,7 +23,16 @@
 	<mvc:resources mapping="/resources/css/**" location="/resources/css/" />
 	<mvc:resources mapping="/resources/bootstrap3.0.3/**" location="/resources/bootstrap3.0.3/" />
     <mvc:resources mapping="/resources/img/**" location="/resources/img/" />
-	
+
+    <!--freemarker静态方法-->
+	<bean id="freemarkerStaticModelsConf" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="location" value="classpath:properties/freemarkerStatic.properties"></property>
+    </bean>
+    
+    <bean id="freemarkerStaticModels" class="com.dingmei.common.FreemarkerStaticModels" factory-method="getInstance">
+        <property name="staticModels" ref="freemarkerStaticModelsConf"/>
+    </bean>
+
 	<bean id="freemarkerResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 <!-- 		<property name="suffix" value=".html" /> -->
 		<property name="exposeSpringMacroHelpers" value="true" />
@@ -33,25 +42,27 @@
 		<property name="contentType" value="text/html;charset=utf-8" />
 		<property name="requestContextAttribute" value="req" />
 		<property name="allowSessionOverride" value="true" />
+        <property name="attributesMap" ref="freemarkerStaticModels" />
 	</bean>
+
 	<bean id="freemarkerConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="location" value="classpath:properties/freemarker.properties" />
 	</bean>
+
 	<bean id="freemarkerConfig"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
 		<property name="defaultEncoding" value="UTF-8" />
 		<property name="templateLoaderPath" value="/WEB-INF/" />
 		<property name="freemarkerSettings" ref="freemarkerConfiguration" />
 		<!-- 全局变量部分 -->
-<!-- 		<property name="freemarkerVariables"> -->
-<!-- 			<map> -->
-<!-- 				<entry key="currentUser"> -->
-<!-- 					<bean -->
-<!-- 						class="com.travelzen.tops.front.common.freemarker.CurrentUserGetter"></bean> -->
-<!-- 				</entry> -->
-<!-- 			</map> -->
-<!-- 		</property> -->
+ 		<property name="freemarkerVariables">
+ 			<map>
+ 				<entry key="xml_escape" value-ref="xmlEscape" />
+ 			</map>
+ 		</property>
 	</bean>
+
+    <bean id="xmlEscape" class="freemarker.template.utility.XmlEscape" />
 
 	<mvc:annotation-driven>
 		
@@ -65,9 +76,9 @@
 		
 <!-- 		<mvc:argument-resolvers> -->
 <!-- 			<bean -->
-<!-- 				class="com.travelzen.framework.web.method.annotation.RequestArrayResolver" /> -->
+<!-- 				class="com.zzc.framework.web.method.annotation.RequestArrayResolver" /> -->
 <!-- 			<bean -->
-<!-- 				class="com.travelzen.framework.web.method.annotation.RequestMapResolver" /> -->
+<!-- 				class="com.zzc.framework.web.method.annotation.RequestMapResolver" /> -->
 <!-- 		</mvc:argument-resolvers> -->
 		
 	</mvc:annotation-driven>

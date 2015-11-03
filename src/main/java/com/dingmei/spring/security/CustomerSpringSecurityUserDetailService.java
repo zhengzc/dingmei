@@ -27,7 +27,7 @@ public class CustomerSpringSecurityUserDetailService implements UserDetailsServi
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 
-        UserDetails userDetails = null;
+        UserInfo userInfo = null;
 
         User user = this.userMapper.loadUserByUserName(userName);
 
@@ -36,19 +36,21 @@ public class CustomerSpringSecurityUserDetailService implements UserDetailsServi
         }
 
         try{
-            userDetails = new org.springframework.security.core.userdetails.User(
+            userInfo = new UserInfo(
                     userName,user.getPassword(),
                     true,
                     true,
                     true,
                     true,
                     getUserAuthorities(Arrays.asList(new String[]{user.getRole()})));
+            userInfo.setId(user.getId());
+            userInfo.setRealName(user.getRealName());
         }catch (Exception e){
             logger.error(e.getMessage(),e);
             throw new UsernameNotFoundException("用户名解析错误");
         }
 
-        return userDetails;
+        return userInfo;
     }
 
     /**

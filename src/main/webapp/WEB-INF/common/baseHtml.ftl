@@ -16,13 +16,14 @@
 
         <@headHtml localJsFiles = localJsFiles remoteJsFiles = remoteJsFiles localCssFiles = localCssFiles>
 
-            <#-- 	本地全局css -->
+        <#-- 	本地全局css -->
             <link rel="stylesheet" href="${basepath}/resources/css/global.css"/>
-            <#--<link rel="stylesheet" type="text/css" href="${basepath}/resources/plugin/datagrid/minified/jquery.bs_grid.min.css">-->
-            <#--<script type="text/javascript" src="${basepath}/resources/plugin/datagrid/minified/jquery.bs_grid.min.js"></script>-->
-            <#--<script type="text/javascript" src="${basepath}/resources/plugin/datagrid/minified/localization/en.min.js"></script>-->
-            <script type="text/javascript" src="${basepath}/resources/plugin/treeview/bootstrap-treeview.min.js"></script>
-            <#--<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>-->
+        <#--<link rel="stylesheet" type="text/css" href="${basepath}/resources/plugin/datagrid/minified/jquery.bs_grid.min.css">-->
+        <#--<script type="text/javascript" src="${basepath}/resources/plugin/datagrid/minified/jquery.bs_grid.min.js"></script>-->
+        <#--<script type="text/javascript" src="${basepath}/resources/plugin/datagrid/minified/localization/en.min.js"></script>-->
+            <script type="text/javascript"
+                    src="${basepath}/resources/plugin/treeview/bootstrap-treeview.min.js"></script>
+        <#--<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>-->
             <script type="text/javascript" src="${basepath}/resources/plugin/highcharts/highcharts.js"></script>
 
             <script type="text/javascript" src="${basepath}/resources/javascripts/leftMenu.js"></script>
@@ -77,19 +78,21 @@
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
             </form> -->
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="/j_spring_security_logout">注销</a></li>
-              <#--<li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <p class="navbar-text">欢迎:${WebUtil.getSessionInfo().realName}</p>
+                    <li><a href="/j_spring_security_logout">注销</a></li>
+                <#--<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li>-->
                 </ul>
-              </li>-->
-            </ul>
 
             </div><#-- /.navbar-collapse -->
         </div>

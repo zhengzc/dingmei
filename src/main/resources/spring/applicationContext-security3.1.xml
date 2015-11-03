@@ -13,7 +13,7 @@
     <http pattern="/resources/plugin/**" security="none" />
     <http pattern="/resources/img/**" security="none" />
 
-    <http auto-config="true" use-expressions="true" access-denied-page="/login">
+    <http auto-config="true" use-expressions="true" access-denied-page="/login" >
         <!-- 不过滤链接 -->
         <!--<intercept-url pattern="/login" filters="none" />-->
 
@@ -21,10 +21,12 @@
         <intercept-url pattern="/index/leftTree" access="isAuthenticated()" />
 
         <intercept-url pattern="/common/page" access="hasRole('u1')" />
+        <intercept-url pattern="/test/page" access="hasRole('u2')" />
 
         <form-login login-page="/index/login"
                     authentication-failure-url="/index/login?error=true"
-                    default-target-url="/common/page?id=1"/>
+                    default-target-url="/common/page?id=1"
+                    />
         <logout logout-url="/j_spring_security_logout"
                 invalidate-session="true"
                 logout-success-url="/index/login"
