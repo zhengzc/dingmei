@@ -5,8 +5,14 @@
 <mapper namespace="com.dingmei.dao.mapper.UserMapper">
 
     <select id="loadUserByUserName" resultType="com.dingmei.dao.entity.User" parameterType="map">
-        SELECT id,userName,password,realName,role,addTime
+        SELECT id,userName,password,realName,addTime
         FROM t_user
         WHERE userName = #{userName}
+    </select>
+
+    <select id="queryUserRoleStrs" resultType="string" parameterType="map">
+        SELECT b.roleStr FROM t_user_role a,t_role b
+        WHERE a.roleId = b.id
+        AND userId = #{userId}
     </select>
 </mapper>

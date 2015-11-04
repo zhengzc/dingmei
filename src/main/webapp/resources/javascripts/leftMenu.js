@@ -17,8 +17,14 @@ jQuery(document).ready(function($){
 
         $('#leftMenu').treeview('expandAll');
 
-        if(selectNode != -1){
+        if(typeof(selectNode) != "undefined" && selectNode != -1){
             $("#leftMenu").treeview("selectNode",[ selectNode, { silent: true } ]);
+        }else{
+            var selectNode = $.getUrlParam("selectNode");
+            if(selectNode != null){
+                $("#leftMenu").treeview("selectNode",[parseInt(selectNode), { silent: true } ]);
+            }
         }
+
     })
 })

@@ -17,10 +17,13 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by ying on 15/10/29.
+ * 用户信息获取
  */
 public class CustomerSpringSecurityUserDetailService implements UserDetailsService{
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+    /**
+     * 增加一个通用的角色
+     */
 
     @Resource
     private UserMapper userMapper;
@@ -42,7 +45,7 @@ public class CustomerSpringSecurityUserDetailService implements UserDetailsServi
                     true,
                     true,
                     true,
-                    getUserAuthorities(Arrays.asList(new String[]{user.getRole()})));
+                    getUserAuthorities(userMapper.queryUserRoleStrs(user.getId())));
             userInfo.setId(user.getId());
             userInfo.setRealName(user.getRealName());
         }catch (Exception e){
@@ -64,6 +67,8 @@ public class CustomerSpringSecurityUserDetailService implements UserDetailsServi
         for(String role : roles){
             authorities.add(new SimpleGrantedAuthority(role));
         }
+
+        authorities.add(new SimpleGrantedAuthority(SecurityConstants.LOGIN_ROLE));
 
         return authorities;
     }

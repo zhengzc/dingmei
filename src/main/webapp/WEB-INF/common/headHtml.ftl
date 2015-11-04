@@ -39,6 +39,8 @@
 	<script src="${basepath}/resources/plugin/jquery/jquery.cookie.js" type="text/javascript"></script>
     <#--jquery form-->
     <script src="${basepath}/resources/plugin/jquery/jquery.form.js" type="text/javascript"></script>
+
+    <script src="${basepath}/resources/plugin/myJqueryPlugin.js" type="text/javascript"></script>
 	<#list localCssFiles as localCss>
 		<link rel="stylesheet" href="${basepath}/resources/css/${localCss}"/>
 	</#list>

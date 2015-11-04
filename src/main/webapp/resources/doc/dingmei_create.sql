@@ -66,3 +66,51 @@ CREATE TABLE `dm_data` (
   PRIMARY KEY (`id`),
   KEY `idx_dataType` (`dataType`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+
+
+
+
+CREATE TABLE `t_resource` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL DEFAULT '' COMMENT '资源名称',
+  `content` varchar(100) NOT NULL DEFAULT '' COMMENT '资源内容',
+  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `t_role` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `roleStr` varchar(20) NOT NULL DEFAULT '' COMMENT 'role的字符串表示形式',
+  `roleName` varchar(50) NOT NULL DEFAULT '' COMMENT '角色名字',
+  `description` varchar(100) DEFAULT NULL COMMENT '描述',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_roleStr` (`roleStr`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `t_role_resource` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `roleStr` varchar(11) NOT NULL DEFAULT '',
+  `resourceId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_roleId` (`roleStr`),
+  KEY `idx_resourceId` (`resourceId`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `t_user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userName` varchar(50) NOT NULL DEFAULT '',
+  `password` varchar(100) NOT NULL DEFAULT '',
+  `realName` varchar(20) NOT NULL DEFAULT '' COMMENT '真实姓名',
+  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_userName` (`userName`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `t_user_role` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `roleId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_userId` (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

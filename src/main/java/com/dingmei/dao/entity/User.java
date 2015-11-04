@@ -10,7 +10,6 @@ public class User {
     private String userName;
     private String password;
     private String realName;
-    private String role;
     private Date addTime;
 
     public Integer getId() {
@@ -37,13 +36,6 @@ public class User {
         this.realName = realName;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     public Date getAddTime() {
         return addTime;

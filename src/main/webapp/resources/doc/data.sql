@@ -25,3 +25,33 @@ INSERT INTO `dm_dataGroup` (`id`, `groupId`, `groupName`)
 VALUES
 	(1, '1', '活期存款利率'),
 	(2, '2', '货币供应量（万亿）');
+
+
+
+
+
+INSERT INTO `t_resource` (`id`, `name`, `content`, `addTime`)
+VALUES
+	(1, '通用折线图查询', '/common/page', '2015-11-04 13:56:57'),
+	(3, '左侧菜单', '/index/leftTree', '2015-11-04 14:00:36'),
+	(4, '测试页面', '/test/page', '2015-11-04 19:06:49');
+
+INSERT INTO `t_role` (`id`, `roleStr`, `roleName`, `description`)
+VALUES
+	(1, 'u1', '普通用户', NULL),
+	(2, 'login', '登录用户', '通用的角色，只要用户登录就拥有的权限，直接在代码中写死'),
+	(3, 'test', '测试角色', NULL);
+
+INSERT INTO `t_role_resource` (`id`, `roleStr`, `resourceId`)
+VALUES
+	(1, 'u1', 1),
+	(2, 'login', 3),
+	(3, 'test', 4);
+
+INSERT INTO `t_user` (`id`, `userName`, `password`, `realName`, `addTime`)
+VALUES
+	(1, 'test', '123456', '郑志超', '2015-10-29 16:10:12');
+
+INSERT INTO `t_user_role` (`id`, `userId`, `roleId`)
+VALUES
+	(1, 1, 1);

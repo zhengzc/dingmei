@@ -1,6 +1,7 @@
 package com.dingmei.dao.mapper;
 
 import com.dingmei.dao.entity.User;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -13,4 +14,11 @@ public interface UserMapper {
      * @return
      */
     public User loadUserByUserName(@Param("userName") String userName);
+
+    /**
+     * 根据userId读取用户角色信息
+     * @param userId
+     * @return
+     */
+    public List<String> queryUserRoleStrs(@Param("userId") int userId);
 }

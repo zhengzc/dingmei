@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="${basepath}/index">dingmei</a>
+                <a class="navbar-brand" href="${basepath}/index.jsp">dingmei</a>
             </div>
 
         <#-- Collect the nav links, forms, and other content for toggling -->

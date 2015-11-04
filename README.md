@@ -18,12 +18,13 @@
 * 将项目导入eclipse
 * 如果eclispe没有配置maven_home需要手动配置maven_home
 
-#角色权限用户配置方式
+#当前系统角色权限用户配置方式
 * 采用springSecurity实现登录和权限控制
-* applicationContext-security3.1.xml文件中配置有每个url需要的角色，具体配置方式请参考文件和下面el表达式的说明，这里配置资源与角色的映射
-* 表t_user中存储用户信息，其中role字段配置用户角色，采用最简单的方式，所以这里只允许每个用户有一个角色
+* 做了一个通用的用户角色权限系统，具体参见t_user t_user_role t_role t_role_resource t_resource表的关联关系
+* 注意我们系统中使用的角色，实际上是t_role表中的roleStr字段
+* 默认用户 test/123456 数据库中密码目前使用明码方便调试
 
-#使用springSecurity控制访问 SpringEl表达式配置角色访问
+#另外一种使用springSecurity控制访问 SpringEl表达式配置角色访问（这是一种更简单的配置方式）
 * hasRole('role')	返回 true 如果当前主体拥有特定角色。
 * hasAnyRole([role1,role2])	返回 true 如果当前主体拥有任何一个提供的角色 （使用逗号分隔的字符串队列）
 * principal	允许直接访问主体对象，表示当前用户

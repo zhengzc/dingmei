@@ -41,6 +41,13 @@ public class IndexPageController {
         return mv;
     }
 
+    @RequestMapping("accessDenied")
+    public ModelAndView accessDenied(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/page/accessDenied.ftl");
+        return mv;
+    }
+
 
     /**
      * 左侧树
