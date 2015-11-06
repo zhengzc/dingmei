@@ -13,7 +13,7 @@
     <meta name="renderer" content="webkit" />
 
 
-    <title>dingmei</title>
+    <title>DIMGMEI</title>
     <meta name="keywords" content="" />
     <meta name="description" content=""  />
 
