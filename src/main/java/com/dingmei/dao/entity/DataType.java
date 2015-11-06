@@ -10,6 +10,7 @@ public class DataType {
     private String typeName;
     private String timeStyle;
     private String colName;
+    private String totalUnit;
     private String colKey;
     private String lineKey;
 
@@ -59,6 +60,14 @@ public class DataType {
 
     public void setColName(String colName) {
         this.colName = colName;
+    }
+
+    public String getTotalUnit() {
+        return totalUnit;
+    }
+
+    public void setTotalUnit(String totalUnit) {
+        this.totalUnit = totalUnit;
     }
 
     public String getColKey() {
