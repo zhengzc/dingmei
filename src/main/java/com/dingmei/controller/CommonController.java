@@ -93,7 +93,7 @@ public class CommonController {
         line.put("subTitle", title);
         line.put("yAxisTitle",title);
 
-        Set<MyTimeDTO> categories = new HashSet<MyTimeDTO>();
+        Set<MyTimeDTO> categories = new TreeSet<MyTimeDTO>();
         List<Object> series = new ArrayList<Object>();
 
         if(dataTypes.size() > 1){//多个表格的配置方式
