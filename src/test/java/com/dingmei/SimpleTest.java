@@ -1,6 +1,6 @@
 package com.dingmei;
 
-import java.util.Calendar;
+import java.util.*;
 import java.util.regex.Pattern;
 
 import com.alibaba.fastjson.JSONObject;
@@ -51,6 +51,36 @@ public class SimpleTest {
     }
 
     @Test
-    public void testJson(){
+    public void testTreeMap(){
+        MyTimeDTO n1 = new MyTimeDTO();
+        n1.setTimeStyle("MM");
+        n1.setMonth(3);
+        MyTimeDTO n2 = new MyTimeDTO();
+        n2.setTimeStyle("MM");
+        n2.setMonth(1);
+        MyTimeDTO n3 = new MyTimeDTO();
+        n3.setTimeStyle("MM");
+        n3.setMonth(5);
+        MyTimeDTO n4 = new MyTimeDTO();
+        n4.setTimeStyle("MM");
+        n4.setMonth(2);
+
+        Map<MyTimeDTO,String> tree = new TreeMap<MyTimeDTO, String>();
+        tree.put(n1,"1");
+        tree.put(n2,"2");
+        tree.put(n3,"3");
+        tree.put(n4,"4");
+
+        Set<MyTimeDTO> sets = new TreeSet<MyTimeDTO>();
+        for(Map.Entry<MyTimeDTO,String> entry : tree.entrySet()){
+            System.out.println(entry.getKey().toString());
+            sets.add(entry.getKey());
+        }
+
+        for(MyTimeDTO dto : sets){
+            System.out.println(dto);
+        }
+
+        System.out.println(JSONObject.toJSONString(sets));
     }
 }
