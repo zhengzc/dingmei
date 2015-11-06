@@ -29,6 +29,7 @@ CREATE TABLE `dm_dataType` (
   `typeName` varchar(50) NOT NULL DEFAULT '',
   `timeStyle` varchar(50) NOT NULL DEFAULT '' COMMENT '时间类型',
   `colName` varchar(200) NOT NULL DEFAULT '' COMMENT '列名 eg:列1,列2',
+  `totalUnit` varchar(50) NOT NULL DEFAULT '' COMMENT 'colName为common时候，total的单位',
   `colKey` varchar(200) NOT NULL DEFAULT '' COMMENT '列key eg:param1,param2',
   `lineKey` varchar(200) NOT NULL DEFAULT '' COMMENT '折线图字段,colName为common的时候可以不设置，否则设置绘制的字段key',
   PRIMARY KEY (`id`),

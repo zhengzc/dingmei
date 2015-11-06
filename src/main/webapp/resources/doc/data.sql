@@ -13,12 +13,12 @@ VALUES
 	(11, '1', 2016, 11, NULL, NULL, 4, NULL, NULL, NULL, '3.55', '3.33', '0.53', '1.35', '3.22', '4.5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-10-28 09:44:54', 0);
 
 
-INSERT INTO `dm_dataType` (`id`, `groupId`, `dataType`, `typeName`, `timeStyle`, `colName`, `colKey`, `lineKey`)
+INSERT INTO `dm_dataType` (`id`, `groupId`, `dataType`, `typeName`, `timeStyle`, `colName`, `totalUnit`, `colKey`, `lineKey`)
 VALUES
-	(1, '1', '1', '利率', 'yyyy.MM.dd', '活期存款,三个月,半年,一年,两年,三年', 'param1,param2,param3,param4,param5,param6', 'param1,param2,param3,param4,param5,param6'),
-	(2, '2', 'M2', 'M2供应量', 'MM', 'common', '', ''),
-	(3, '2', 'M1', 'M1', 'MM', 'common', '', ''),
-	(4, '2', 'M0', 'M0', 'MM', 'common', '', '');
+	(1, '1', '1', '利率', 'yyyy.MM.dd', '活期存款,三个月,半年,一年,两年,三年', '1', 'param1,param2,param3,param4,param5,param6', 'param1,param2,param3,param4,param5,param6'),
+	(2, '2', 'M2', 'M2供应量', 'MM', 'common', '1', '', ''),
+	(3, '2', 'M1', 'M1', 'MM', 'common', '1', '', ''),
+	(4, '2', 'M0', 'M0', 'MM', 'common', '1', '', '');
 
 
 INSERT INTO `dm_dataGroup` (`id`, `groupId`, `groupName`)
