@@ -28,6 +28,13 @@ VALUES
 
 
 
+INSERT INTO `dm_menu` (`id`, `name`, `menuType`, `path`, `parent`)
+VALUES
+	(1, '货币政策', 'd', NULL, 0),
+	(2, '利率', 'c', '1', 1),
+	(3, '货币供应量', 'c', '2', 1),
+	(4, '菜单1', 'd', NULL, 0),
+	(5, '叶子', 'l', '/test/page', 4);
 
 
 INSERT INTO `t_resource` (`id`, `name`, `content`, `addTime`)
