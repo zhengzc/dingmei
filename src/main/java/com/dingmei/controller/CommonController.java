@@ -21,7 +21,7 @@ import java.util.*;
 @RequestMapping("/common")
 public class CommonController {
 
-    private final String DEFAULT_COLUMN_NAME = "数量,环比,同比";
+    private final String DEFAULT_COLUMN_NAME = "环比,同比";
     private final String DEFAULT_COLUMN_KEY = "total,huanBi,tongBi";
     @Resource
     private MacroService macroService;
@@ -46,23 +46,29 @@ public class CommonController {
         for(DataType dataType : dataTypes){
             String columnNameStr;
             String columnKeyStr;
+            //列名称
+            List<String> columnNames = new ArrayList<String>();
+
             if ("common".equals(dataType.getColName())){
                 columnNameStr = DEFAULT_COLUMN_NAME;
                 columnKeyStr = DEFAULT_COLUMN_KEY;
+                columnNames.add(dataType.getTotalUnit() != null ? dataType.getTotalUnit() : "总量");
             }else{
                 columnNameStr = dataType.getColName();
                 columnKeyStr = dataType.getColKey();
             }
-            String[] columnNames = columnNameStr.split(",");
+            columnNames.addAll(Arrays.asList(columnNameStr.split(",")));
+
+            //列key
             String[] columnKeys = columnKeyStr.split(",");
 
             for(int i = 0 ; i < columnKeys.length ; i++){
-                columnKeyName.put(columnKeys[i],columnNames[i]);
+                columnKeyName.put(columnKeys[i],columnNames.get(i));
             }
 
             CommonTableVO commonTableVO = new CommonTableVO();
             commonTableVO.setTitle(dataType.getTypeName());
-            List<String> colNames = Arrays.asList(columnNames);
+            List<String> colNames = columnNames;
             commonTableVO.setColumnName(colNames);
 
             List<Map<String,Object>> datas = this.macroService.queryDataCommon(dataType.getDataType(),columnKeys);

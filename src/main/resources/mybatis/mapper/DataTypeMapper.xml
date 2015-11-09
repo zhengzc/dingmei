@@ -5,7 +5,7 @@
 <mapper namespace="com.dingmei.dao.mapper.DataTypeMapper">
 
     <select id="queryDataTypeByGroupId" parameterType="map" resultType="com.dingmei.dao.entity.DataType">
-      SELECT id,groupId,dataType,typeName,timeStyle,colName,colKey,lineKey
+      SELECT id,groupId,dataType,typeName,timeStyle,colName,totalUnit,colKey,lineKey
       FROM dm_dataType
       WHERE groupId = #{groupId}
     </select>
