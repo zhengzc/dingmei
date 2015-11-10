@@ -18,6 +18,7 @@ CREATE TABLE `dm_dataGroup` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `groupId` varchar(20) NOT NULL DEFAULT '' COMMENT '一组数据',
   `groupName` varchar(50) NOT NULL DEFAULT '',
+  `description` varchar(500) DEFAULT NULL COMMENT '描述',
   PRIMARY KEY (`id`),
   KEY `idx_groupId` (`groupId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;

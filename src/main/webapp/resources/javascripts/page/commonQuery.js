@@ -47,4 +47,126 @@ jQuery(document).ready(function($){
     };
 
     $("#grid").bs_grid(tableData);*/
+
+    $('#queryForm').bootstrapValidator({
+        message: '请注意数据的格式',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        //group: '.form-group',
+        fields: {
+            startYear: {
+                group: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: '年份不能为空'
+                    },
+                    digits:{
+                        message:'只能输入数字'
+                    }
+                }
+            },
+            startQuarter: {
+                group: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: '季度不能为空'
+                    },
+                    digits:{
+                        message:'只能输入数字'
+                    }
+                }
+            },
+            startMonth: {
+                group: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: '月份不能为空'
+                    },
+                    digits:{
+                        message:'只能输入数字'
+                    }
+                }
+            },
+            startWeek: {
+                group: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: '星期不能为空'
+                    },
+                    digits:{
+                        message:'只能输入数字'
+                    }
+                }
+            },
+            startDay: {
+                group: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: '日期不能为空'
+                    },
+                    digits:{
+                        message:'只能输入数字'
+                    }
+                }
+            },
+            endYear: {
+                group: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: '年份不能为空'
+                    },
+                    digits:{
+                        message:'只能输入数字'
+                    }
+                }
+            },
+            endQuarter: {
+                group: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: '季度不能为空'
+                    },
+                    digits:{
+                        message:'只能输入数字'
+                    }
+                }
+            },
+            endMonth: {
+                group: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: '月份不能为空'
+                    },
+                    digits:{
+                        message:'只能输入数字'
+                    }
+                }
+            },
+            endWeek: {
+                group: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: '月份不能为空'
+                    },
+                    digits:{
+                        message:'只能输入数字'
+                    }
+                }
+            },
+            endDay: {
+                group: '.form-group',
+                validators: {
+                    notEmpty: {
+                        message: '日期不能为空'
+                    },
+                    digits:{
+                        message:'只能输入数字'
+                    }
+                }
+            }
+        }
+    });
 });

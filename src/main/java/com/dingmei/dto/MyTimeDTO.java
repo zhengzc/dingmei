@@ -4,6 +4,7 @@ package com.dingmei.dto;
  * Created by ying on 15/10/27.
  */
 public class MyTimeDTO implements Comparable<MyTimeDTO>{
+
     private String timeStyle;
     private Integer year;
     private Integer month;
@@ -154,5 +155,32 @@ public class MyTimeDTO implements Comparable<MyTimeDTO>{
                 }
             }
         }
+    }
+
+    public String[] getTimeKeys(){
+        if(("yyyy.MM.dd").equals(timeStyle)){
+            return new String[]{"year","month","day"};
+        }else if("MM".equals(timeStyle)){
+            return new String[]{"month"};
+        }else if(("yyyy.MM").equals(timeStyle)){
+            return new String[]{"year","month"};
+        }else if(("quarter").equals(timeStyle)){
+            return new String[]{"year","quarter"};
+        }else if(("yyyy.MM.week").equals(timeStyle)){
+            return new String[]{"year","month","week"};
+        }else{
+            return new String[]{};
+        }
+    }
+
+    public Boolean isEmpty(){
+        if((this.year == null || this.year == 0)
+                &&(this.quarter == null || this.quarter == 0)
+                &&(this.month == null || this.month == 0)
+                &&(this.week == null || this.week == 0)
+                &&(this.day == null || this.day == 0)){
+            return true;
+        }
+        return false;
     }
 }
