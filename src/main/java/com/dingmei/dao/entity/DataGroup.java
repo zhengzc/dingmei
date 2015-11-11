@@ -8,7 +8,15 @@ public class DataGroup {
     private String groupId;
     private String groupName;
     private String description;
+    private String analysis;
 
+    public String getAnalysis() {
+        return analysis;
+    }
+
+    public void setAnalysis(String analysis) {
+        this.analysis = analysis;
+    }
 
     public String getGroupId() {
         return groupId;

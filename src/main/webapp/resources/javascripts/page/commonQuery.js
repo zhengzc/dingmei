@@ -169,4 +169,20 @@ jQuery(document).ready(function($){
             }
         }
     });
+
+    $("#saveAnalysis").bind("click",function(){
+        var groupId = $("#id").val();
+        var analysisStr = $("#analysisContext").val();
+        var param = {};
+        param.groupId = groupId;
+        param.analysis = analysisStr;
+        $.post(basepath+"/common/updateGroupAnalysis",param,function(data){
+            if(data.code == 200){
+                window.location.reload(true);
+            }else{
+                $("#errMsg").text(data.msg);
+                $("#errMsg").removeClass("hidden");
+            }
+        });
+    });
 });

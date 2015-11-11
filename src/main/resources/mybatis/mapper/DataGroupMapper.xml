@@ -5,8 +5,14 @@
 <mapper namespace="com.dingmei.dao.mapper.DataGroupMapper">
 
     <select id="loadDataGroup" resultType="com.dingmei.dao.entity.DataGroup" parameterType="map">
-        SELECT id,groupId,groupName,description
+        SELECT id,groupId,groupName,description,analysis
         FROM dm_dataGroup
         WHERE groupId = #{groupId}
     </select>
+
+    <update id="updateDataGroupAnalysis" parameterType="map">
+        UPDATE dm_dataGroup
+          SET analysis = #{analysis}
+          WHERE groupId = #{groupId}
+    </update>
 </mapper>

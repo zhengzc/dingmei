@@ -43,8 +43,16 @@ public interface MacroService {
     public TreeMap<MyTimeDTO,Map<String,Object>> queryDataCommonMap(String dataType, String[] columns);
     /**
      * 查询出一列数据，时间作为key值
-     * @param
+     * @paramD
      * @return
      */
     public TreeMap<MyTimeDTO,String> queryDataOneColumn(String dataType,String timeStyle, String column);
+
+    /**
+     * 更新某datagroup的分析结果
+     * @param groupId
+     * @param analysis
+     * @return
+     */
+    public Boolean updateDataGroupAnalysis(String groupId,String analysis);
 }

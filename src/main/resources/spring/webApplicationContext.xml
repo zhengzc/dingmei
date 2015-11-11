@@ -58,6 +58,9 @@
  		<property name="freemarkerVariables">
  			<map>
  				<entry key="xml_escape" value-ref="xmlEscape" />
+                <entry key="dataRight">
+                    <bean class="com.dingmei.common.FreemarkerDataRightTag"></bean>
+                </entry>
  			</map>
  		</property>
 	</bean>

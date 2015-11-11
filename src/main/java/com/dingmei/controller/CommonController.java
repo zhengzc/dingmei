@@ -6,9 +6,14 @@ import com.dingmei.dao.entity.DataType;
 import com.dingmei.dto.MyTimeDTO;
 import com.dingmei.service.macro.MacroService;
 import com.dingmei.vo.CommonTableVO;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -21,6 +26,7 @@ import java.util.*;
 @Controller
 @RequestMapping("/common")
 public class CommonController {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final String DEFAULT_COLUMN_NAME = "环比,同比";
     private final String DEFAULT_COLUMN_KEY = "total,huanBi,tongBi";
@@ -265,12 +271,39 @@ public class CommonController {
         mv.getModel().put("line", JSONObject.toJSONString(line));
         mv.getModel().put("timeKeys",timeStyle.getTimeKeys());
         mv.getModel().put("id",groupId);
-        mv.getModel().put("description",dataGroup.getDescription().trim());
+        mv.getModel().put("description", StringEscapeUtils.escapeHtml4(dataGroup.getDescription().trim()));
+        mv.getModel().put("analysis",StringEscapeUtils.escapeHtml4(dataGroup.getAnalysis().trim()));
 
         //处理一下选中节点
         String selectNode = request.getParameter("selectNode");
         mv.getModel().put("selectNode",selectNode != null ? selectNode : -1);
         return mv;
+    }
+
+    @RequestMapping("/updateGroupAnalysis")
+    @ResponseBody
+    public Object updateGroupAnalysis(HttpServletRequest request){
+        Map<String,Object> ret = new HashMap<String, Object>();
+
+        try {
+            String groupId = ServletRequestUtils.getRequiredStringParameter(request,"groupId");
+            String analysis = ServletRequestUtils.getRequiredStringParameter(request,"analysis");
+
+            this.macroService.updateDataGroupAnalysis(groupId,analysis);
+
+            ret.put("code",200);
+        } catch (ServletRequestBindingException e) {
+            logger.error(e.getMessage(),e);
+            ret.put("code",500);
+            ret.put("msg","参数错误");
+            return ret;
+        } catch (Exception e){
+            logger.error(e.getMessage(), e);
+            ret.put("code",500);
+            return ret;
+        }
+
+        return ret;
     }
 
 }

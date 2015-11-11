@@ -48,6 +48,7 @@ public class CustomerSpringSecurityUserDetailService implements UserDetailsServi
                     getUserAuthorities(userMapper.queryUserRoleStrs(user.getId())));
             userInfo.setId(user.getId());
             userInfo.setRealName(user.getRealName());
+            userInfo.setRoles(this.userMapper.queryUserRoleStrs(user.getId()));
         }catch (Exception e){
             logger.error(e.getMessage(),e);
             throw new UsernameNotFoundException("用户名解析错误");

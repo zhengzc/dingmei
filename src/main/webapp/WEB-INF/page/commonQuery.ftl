@@ -6,7 +6,7 @@
     </script>
 
     <form id="queryForm" class="form-horizontal" action="${basepath}/common/page?id=${id}&selectNode=${selectNode}" method="get">
-        <input class="hidden" name="id" value="${id}" />
+        <input class="hidden" id="id" name="id" value="${id}" />
         <input class="hidden" name="selectNode" value="${selectNode}" />
         <div class="panel-group" id="steps">
             <!-- Step 1 -->
@@ -114,11 +114,54 @@
     </div>
     </#list>
 
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            分析说明
+            <@dataRight roles="u2" >
+            <button type="button" id="editBtn" class="btn btn-xs pull-right" aria-label="Left Align" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+            </button>
+            </@dataRight>
+        </div>
+        <div class="panel-body">
+            <p>
+                <small>
+                    <em>&nbsp;&nbsp;&nbsp;&nbsp;${description!""}</em>
+                </small>
+            </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;${analysis!""}
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">请编辑内容</h4>
+                </div>
+                <div class="modal-body">
+                    <textarea id="analysisContext" style="width: 100%;height: 150px;">${analysis!""}</textarea>
+                </div>
+                <div class="alert alert-danger hidden" id="errMsg" role="alert"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" id="saveAnalysis" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <#--
     <div class="bg-info">
         <small>
             <em>&nbsp;&nbsp;&nbsp;&nbsp;${description!""}</em>
         </small>
     </div>
+    -->
     <#--
     <div>
         <h3>M1供应量</h3>

@@ -81,4 +81,10 @@ public class MacroServiceImpl implements MacroService{
 
         return retMap;
     }
+
+    @Override
+    public Boolean updateDataGroupAnalysis(String groupId, String analysis) {
+        int count = this.dataGroupMapper.updateDataGroupAnalysis(groupId,analysis);
+        return count == 1 ? true : false;
+    }
 }
