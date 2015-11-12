@@ -127,7 +127,7 @@
         <div class="panel-body">
             <p>
                 <small>
-                    <em><strong>&nbsp;&nbsp;&nbsp;&nbsp;${description!""}g</strong></em>
+                    <em><strong>&nbsp;&nbsp;&nbsp;&nbsp;${description!""}</strong></em>
                 </small>
             </p>
             <p>
