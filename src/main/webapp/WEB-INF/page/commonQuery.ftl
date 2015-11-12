@@ -5,6 +5,9 @@
         selectNode = parseInt(${selectNode!"0"});
     </script>
 
+    <div id="chart">
+    </div>
+
     <form id="queryForm" class="form-horizontal" action="${basepath}/common/page?id=${id}&selectNode=${selectNode}" method="get">
         <input class="hidden" id="id" name="id" value="${id}" />
         <input class="hidden" name="selectNode" value="${selectNode}" />
@@ -62,7 +65,7 @@
                                 <#elseif tk == "week">
                                     <div class="col-sm-2">
                                         <input type="text" class="form-control" id="endWeek" name="endWeek" placeholder="星期" maxlength="2">
-                                    </div>
+                                                  </div>
                                 <#elseif tk == "day">
                                     <div class="col-sm-2">
                                         <input type="text" class="form-control" id="endDay" name="endDay" placeholder="日" maxlength="2">
@@ -83,8 +86,6 @@
         </div>
     </form>
 
-    <div id="chart">
-    </div>
     <#list tables as table>
     <div>
         <h3>${table.title}</h3>
