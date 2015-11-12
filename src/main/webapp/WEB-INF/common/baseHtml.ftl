@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="${basepath}/index.jsp">鼎美</a>
+                <a class="navbar-brand" href="#">鼎美</a>
             </div>
 
         <#-- Collect the nav links, forms, and other content for toggling -->
