@@ -125,11 +125,11 @@
             </@dataRight>
         </div>
         <div class="panel-body">
-            <p>
+            <div class="alert alert-warning">
                 <small>
-                    <em><strong>&nbsp;&nbsp;&nbsp;&nbsp;${description!""}</strong></em>
+                    <strong>&nbsp;&nbsp;&nbsp;&nbsp;名词解释：${description!""}</strong>
                 </small>
-            </p>
+            </div>
             <p>
                 &nbsp;&nbsp;&nbsp;&nbsp;${analysis!""}
             </p>
