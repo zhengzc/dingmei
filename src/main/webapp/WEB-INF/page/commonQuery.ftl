@@ -14,10 +14,10 @@
                 <div class="panel-heading">
                     <h4 class="panel-title"><a data-toggle="collapse" data-parent="#steps" href="#stepOne">分段查询</a></h4>
                 </div>
-                <div id="stepOne" class="panel-collapse collapse">
-                    <div class="panel-body">
+                <div id="stepOne" class="panel-collapse collapse in">
+                    <div class="panel-body" style="padding: 3px">
 
-                        <div class="form-group">
+                        <div class="form-group form-group-sm" style="margin-bottom: 5px">
                             <label for="startYear" class="col-sm-2 control-label">开始时间</label>
                             <#list timeKeys as tk>
                                 <#if tk == "year">
@@ -44,7 +44,7 @@
                             </#list>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group form-group-sm" style="margin-bottom: 5px">
                             <label for="endYear" class="col-sm-2 control-label">结束时间</label>
                             <#list timeKeys as tk>
                                 <#if tk == "year">
@@ -71,10 +71,10 @@
                             </#list>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group form-group-sm" style="margin-bottom: 5px">
                             <div class="col-lg-9 col-lg-offset-2">
-                                <button type="submit" class="btn btn-primary" value="提交">提交</button>
-                                <button type="reset" class="btn btn-default" value="重置">重置</button>
+                                <button type="submit" class="btn btn-primary btn-sm" value="提交">提交</button>
+                                <button type="reset" class="btn btn-default btn-sm" value="重置">重置</button>
                             </div>
                         </div>
                     </div>
