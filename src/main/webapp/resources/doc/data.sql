@@ -16,9 +16,9 @@ VALUES
 INSERT INTO `dm_dataType` (`id`, `groupId`, `dataType`, `typeName`, `timeStyle`, `colName`, `totalUnit`, `colKey`, `lineKey`)
 VALUES
 	(1, '1', '1', '利率', 'yyyy.MM.dd', '活期存款,三个月,半年,一年,两年,三年', '1', 'param1,param2,param3,param4,param5,param6', 'param1,param2,param3,param4,param5,param6'),
-	(2, '2', 'M2', 'M2供应量', 'MM', 'common', '1', '', ''),
-	(3, '2', 'M1', 'M1', 'MM', 'common', '1', '', ''),
-	(4, '2', 'M0', 'M0', 'MM', 'common', '1', '', '');
+	(2, '2', 'M2', 'M2供应量', 'yyyy.MM', 'common', '1', '', ''),
+	(3, '2', 'M1', 'M1', 'yyyy.MM', 'common', '1', '', ''),
+	(4, '2', 'M0', 'M0', 'yyyy.MM', 'common', '1', '', '');
 
 
 INSERT INTO `dm_dataGroup` (`id`, `groupId`, `groupName`, `description`, `analysis`)
