@@ -30,7 +30,7 @@ public class CommonController {
 
     private final String DEFAULT_COLUMN_NAME = "环比,同比";
     private final String DEFAULT_COLUMN_KEY = "total,huanBi,tongBi";
-    private final int DEFAULT_SHOW_COUNT = 3;//默认显示数据条数
+    private final int DEFAULT_SHOW_COUNT = 12;//默认显示数据条数
     @Resource
     private MacroService macroService;
 
