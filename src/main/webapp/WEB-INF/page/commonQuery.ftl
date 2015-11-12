@@ -13,7 +13,7 @@
         <input class="hidden" name="selectNode" value="${selectNode}" />
         <div class="panel-group" id="steps">
             <!-- Step 1 -->
-            <div class="panel panel-primary">
+            <div class="panel panel-info">
                 <div class="panel-heading">
                     <h4 class="panel-title"><a data-toggle="collapse" data-parent="#steps" href="#stepOne">分段查询</a></h4>
                 </div>
@@ -76,7 +76,7 @@
 
                         <div class="form-group form-group-sm" style="margin-bottom: 5px">
                             <div class="col-lg-9 col-lg-offset-2">
-                                <button type="submit" class="btn btn-primary btn-sm" value="提交">提交</button>
+                                <button type="submit" class="btn btn-info btn-sm" value="提交">提交</button>
                                 <button type="reset" class="btn btn-default btn-sm" value="重置">重置</button>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
     </div>
     </#list>
 
-    <div class="panel panel-info">
+    <div class="panel panel-warning">
         <div class="panel-heading">
             分析说明
             <@dataRight roles="u2" >
