@@ -7,7 +7,16 @@ public class DataGroup {
     private Integer id;
     private String groupId;
     private String groupName;
+    private String description;
+    private String analysis;
 
+    public String getAnalysis() {
+        return analysis;
+    }
+
+    public void setAnalysis(String analysis) {
+        this.analysis = analysis;
+    }
 
     public String getGroupId() {
         return groupId;
@@ -31,5 +40,13 @@ public class DataGroup {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -11,6 +11,7 @@ import java.util.Set;
 
 /**
  * 统一加载Freemarker静态方法
+ * <@dataRight code="role1,role2"></@dataRight>
  */
 public class FreemarkerStaticModels extends HashMap<Object, Object> {
 

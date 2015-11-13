@@ -13,7 +13,7 @@
     <meta name="renderer" content="webkit" />
 
 
-    <title>dingmei</title>
+    <title>DIMGMEI</title>
     <meta name="keywords" content="" />
     <meta name="description" content=""  />
 
@@ -41,9 +41,9 @@
     <div class="aw-login-box">
         <div class="mod-body clearfix">
             <div class="content pull-left">
-                <h1 class="logo"><a href=""><img width="97" src="/resources/img/login_logo.png" /></a></h1>
+                <h1 class="logo"><a href=""><img width="100" src="/resources/img/dingmei2_logo.jpg" /></a></h1>
                 <#--<h2>欢迎来到</h2>-->
-                <form id="login_form" method="post" action="${basepath}/j_spring_security_check">
+                <form id="login_form" method="post" action="/j_spring_security_check">
                     <input type="hidden" name="return_url" value="" />
                     <ul>
                         <li>

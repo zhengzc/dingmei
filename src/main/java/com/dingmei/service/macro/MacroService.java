@@ -27,7 +27,7 @@ public interface MacroService {
     public List<DataType> queryDataTypes(String groupId);
 
     /**
-     * 查询数据
+     * 查询数据,根据时间排序
      * @param dataType
      * @param columns
      * @return
@@ -35,9 +35,24 @@ public interface MacroService {
     public List<Map<String,Object>> queryDataCommon(String dataType, String[] columns);
 
     /**
+     * 查询数据,根据key进行升序
+     * @param dataType
+     * @param columns
+     * @return
+     */
+    public TreeMap<MyTimeDTO,Map<String,Object>> queryDataCommonMap(String dataType, String[] columns);
+    /**
      * 查询出一列数据，时间作为key值
-     * @param
+     * @paramD
      * @return
      */
     public TreeMap<MyTimeDTO,String> queryDataOneColumn(String dataType,String timeStyle, String column);
+
+    /**
+     * 更新某datagroup的分析结果
+     * @param groupId
+     * @param analysis
+     * @return
+     */
+    public Boolean updateDataGroupAnalysis(String groupId,String analysis);
 }

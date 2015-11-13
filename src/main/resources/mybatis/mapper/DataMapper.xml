@@ -10,5 +10,4 @@
       WHERE dataType = #{dataType}
       ORDER BY year,quarter,month,week,day
     </select>
-
 </mapper>

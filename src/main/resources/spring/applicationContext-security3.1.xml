@@ -8,7 +8,7 @@
            http://www.springframework.org/schema/security
            http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 	
-	<http pattern="/resources/bootstrap3.0.3/**" security="none" />
+	<http pattern="/resources/bootstrap3.3.5/**" security="none" />
     <http pattern="/resources/css/**" security="none" />
     <http pattern="/resources/javascripts/**" security="none" />
     <http pattern="/resources/plugin/**" security="none" />

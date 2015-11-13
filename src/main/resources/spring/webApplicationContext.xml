@@ -21,7 +21,7 @@
 	<mvc:resources mapping="/resources/javascripts/**" location="/resources/javascripts/" />
     <mvc:resources mapping="/resources/plugin/**" location="/resources/plugin/" />
 	<mvc:resources mapping="/resources/css/**" location="/resources/css/" />
-	<mvc:resources mapping="/resources/bootstrap3.0.3/**" location="/resources/bootstrap3.0.3/" />
+	<mvc:resources mapping="/resources/bootstrap3.3.5/**" location="/resources/bootstrap3.3.5/" />
     <mvc:resources mapping="/resources/img/**" location="/resources/img/" />
 
     <!--freemarker静态方法-->
@@ -58,6 +58,9 @@
  		<property name="freemarkerVariables">
  			<map>
  				<entry key="xml_escape" value-ref="xmlEscape" />
+                <entry key="dataRight">
+                    <bean class="com.dingmei.common.FreemarkerDataRightTag"></bean>
+                </entry>
  			</map>
  		</property>
 	</bean>

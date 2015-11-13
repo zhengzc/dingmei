@@ -19,5 +19,4 @@ public interface DataMapper {
             @Param("dataType") String dataType,
             @Param("column") String column
     );
-
 }
