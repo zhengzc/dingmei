@@ -71,6 +71,9 @@ public class CommonController {
         //时间key列表
         MyTimeDTO timeStyle = null;
 
+        //是否为通用的查询方式
+        Boolean isCommon = false;
+
         //构建表格
         List<DataType> dataTypes = this.macroService.queryDataTypes(groupId);
         for(DataType dataType : dataTypes){
@@ -83,6 +86,7 @@ public class CommonController {
                 columnNameStr = DEFAULT_COLUMN_NAME;
                 columnKeyStr = DEFAULT_COLUMN_KEY;
                 columnNames.add(dataType.getTotalUnit() != null ? dataType.getTotalUnit() : "总量");
+                isCommon = true;
             }else{
                 columnNameStr = dataType.getColName();
                 columnKeyStr = dataType.getColKey();
@@ -145,7 +149,7 @@ public class CommonController {
         TreeSet<MyTimeDTO> categories = new TreeSet<MyTimeDTO>();
         List<Object> series = new ArrayList<Object>();
 
-        if(dataTypes.size() > 1){//多个表格的配置方式
+        if(isCommon){//多个表格的配置方式
             int i  = 0;
             for(DataType dataType : dataTypes){
                 Map<String,Object> oneLine = new HashMap<String, Object>();
