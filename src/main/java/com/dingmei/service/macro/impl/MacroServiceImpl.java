@@ -1,12 +1,12 @@
 package com.dingmei.service.macro.impl;
 
 import com.dingmei.dao.entity.DataGroup;
-import com.dingmei.dao.entity.DataType;
-import com.dingmei.dao.mapper.DataGroupMapper;
 import com.dingmei.dao.mapper.DataMapper;
 import com.dingmei.dao.mapper.DataTypeMapper;
-import com.dingmei.dto.MyTimeDTO;
 import com.dingmei.service.macro.MacroService;
+import com.dingmei.dao.entity.DataType;
+import com.dingmei.dao.mapper.DataGroupMapper;
+import com.dingmei.dto.MyTimeDTO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.*;
  * Created by ying on 15/10/27.
  */
 @Service
-public class MacroServiceImpl implements MacroService{
+public class MacroServiceImpl implements MacroService {
     @Autowired
     private DataGroupMapper dataGroupMapper;
     @Autowired

@@ -1,7 +1,7 @@
 package com.dingmei.service.macro.impl;
 
-import com.dingmei.dao.entity.Menu;
 import com.dingmei.dao.mapper.MenuMapper;
+import com.dingmei.dao.entity.Menu;
 import com.dingmei.service.macro.MenuService;
 import org.springframework.stereotype.Service;
 

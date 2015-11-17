@@ -1,8 +1,8 @@
 package com.dingmei.spring.security;
 
-import com.dingmei.core.SpringAppContext;
 import com.dingmei.dao.entity.Resource;
 import com.dingmei.dao.mapper.ResourceMapper;
+import com.dingmei.core.SpringAppContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
