@@ -35,7 +35,7 @@ public class DataType {
     }
 
     public void setDataType(String dataType) {
-        this.dataType = dataType;
+        this.dataType = dataType.trim();
     }
 
     public String getTypeName() {
@@ -43,7 +43,7 @@ public class DataType {
     }
 
     public void setTypeName(String typeName) {
-        this.typeName = typeName;
+        this.typeName = typeName.trim();
     }
 
     public String getTimeStyle() {
@@ -51,7 +51,7 @@ public class DataType {
     }
 
     public void setTimeStyle(String timeStyle) {
-        this.timeStyle = timeStyle;
+        this.timeStyle = timeStyle.trim();
     }
 
     public String getColName() {
@@ -59,7 +59,7 @@ public class DataType {
     }
 
     public void setColName(String colName) {
-        this.colName = colName;
+        this.colName = colName.trim();
     }
 
     public String getTotalUnit() {
@@ -67,7 +67,7 @@ public class DataType {
     }
 
     public void setTotalUnit(String totalUnit) {
-        this.totalUnit = totalUnit;
+        this.totalUnit = totalUnit.trim();
     }
 
     public String getColKey() {
@@ -75,7 +75,7 @@ public class DataType {
     }
 
     public void setColKey(String colKey) {
-        this.colKey = colKey;
+        this.colKey = colKey.trim();
     }
 
     public String getLineKey() {
@@ -83,6 +83,6 @@ public class DataType {
     }
 
     public void setLineKey(String lineKey) {
-        this.lineKey = lineKey;
+        this.lineKey = lineKey.trim();
     }
 }
