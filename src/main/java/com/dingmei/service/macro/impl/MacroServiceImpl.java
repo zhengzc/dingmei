@@ -64,7 +64,7 @@ public class MacroServiceImpl implements MacroService{
     public TreeMap<MyTimeDTO, String> queryDataOneColumn(String dataType,String timeStyle, String column) {
         TreeMap<MyTimeDTO, String> retMap = new TreeMap<MyTimeDTO, String>();
 
-        List<Map<String,Object>> rets = this.dataMapper.queryDataCommon(dataType,column);
+        List<Map<String,Object>> rets = this.dataMapper.queryDataCommon(dataType,column.trim());
         for(Map<String,Object> map : rets){
 
             MyTimeDTO myTimeDTO = new MyTimeDTO();

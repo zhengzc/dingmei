@@ -1,9 +1,13 @@
 package com.dingmei.dto;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by ying on 15/10/27.
  */
 public class MyTimeDTO implements Comparable<MyTimeDTO>{
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private String timeStyle;
     private Integer year;
@@ -169,6 +173,7 @@ public class MyTimeDTO implements Comparable<MyTimeDTO>{
         }else if(("yyyy.MM.week").equals(timeStyle)){
             return new String[]{"year","month","week"};
         }else{
+            logger.warn("无法识别的时间格式！");
             return new String[]{};
         }
     }

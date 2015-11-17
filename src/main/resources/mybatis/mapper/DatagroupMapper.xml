@@ -12,7 +12,7 @@
 
     <update id="updateDataGroupAnalysis" parameterType="map">
         UPDATE dm_dataGroup
-          SET analysis = #{analysis}
-          WHERE groupId = #{groupId}
+        SET analysis = #{analysis}
+        WHERE groupId = #{groupId}
     </update>
 </mapper>
