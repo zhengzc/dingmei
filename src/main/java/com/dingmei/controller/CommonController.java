@@ -60,7 +60,7 @@ public class CommonController {
         startTime.setDay(ServletRequestUtils.getIntParameter(request,"startDay",0));
 
         endTime.setYear(ServletRequestUtils.getIntParameter(request,"endYear",0));
-        endTime.setQuarter(ServletRequestUtils.getIntParameter(request,"entQuarter",0));
+        endTime.setQuarter(ServletRequestUtils.getIntParameter(request,"endQuarter",0));
         endTime.setMonth(ServletRequestUtils.getIntParameter(request,"endMonth",0));
         endTime.setWeek(ServletRequestUtils.getIntParameter(request,"endWeek",0));
         endTime.setDay(ServletRequestUtils.getIntParameter(request,"endDay",0));
