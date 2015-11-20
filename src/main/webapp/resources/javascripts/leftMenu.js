@@ -15,7 +15,7 @@ jQuery(document).ready(function($){
             }
         });
 
-        $('#leftMenu').treeview('expandAll');
+        //$('#leftMenu').treeview('expandAll');
 
         if(typeof(selectNode) != "undefined" && selectNode != -1){
             $("#leftMenu").treeview("selectNode",[ selectNode, { silent: true } ]);
