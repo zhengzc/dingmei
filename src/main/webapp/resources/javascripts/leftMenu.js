@@ -16,13 +16,16 @@ jQuery(document).ready(function($){
         });
 
         //$('#leftMenu').treeview('expandAll');
+        $("#leftMenu").treeview("collapseAll",{silent:true});
 
         if(typeof(selectNode) != "undefined" && selectNode != -1){
+            $('#leftMenu').treeview('revealNode', [ selectNode, { silent: true } ]);
             $("#leftMenu").treeview("selectNode",[ selectNode, { silent: true } ]);
         }else{
-            var selectNode = $.getUrlParam("selectNode");
-            if(selectNode != null){
-                $("#leftMenu").treeview("selectNode",[parseInt(selectNode), { silent: true } ]);
+            var sNode = $.getUrlParam("selectNode");
+            if(sNode != null){
+                $('#leftMenu').treeview('revealNode', [ parseInt(sNode), { silent: true } ]);
+                $("#leftMenu").treeview("selectNode",[parseInt(sNode), { silent: true } ]);
             }
         }
 
