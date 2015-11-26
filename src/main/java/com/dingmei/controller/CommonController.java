@@ -150,15 +150,15 @@ public class CommonController {
         List<Object> series = new ArrayList<Object>();
 
         if(isCommon){//多个表格的配置方式
-            int i  = 0;
+
+            List<TreeMap<MyTimeDTO,String>> cacheDatas = new ArrayList<TreeMap<MyTimeDTO, String>>();
             for(DataType dataType : dataTypes){
                 Map<String,Object> oneLine = new HashMap<String, Object>();
-
                 String lineKeyStr = "total";
                 oneLine.put("name",dataType.getTypeName());
+                TreeMap<MyTimeDTO,String> timeDatas = this.macroService.queryDataOneColumn(dataType.getDataType(),dataType.getTimeStyle(),lineKeyStr);
 
-                List<Double> oneLineData = new ArrayList<Double>();
-                Map<MyTimeDTO,String> timeDatas = this.macroService.queryDataOneColumn(dataType.getDataType(),dataType.getTimeStyle(),lineKeyStr);
+                cacheDatas.add(timeDatas);
 
                 //获取categories列表
                 if(timeDatas.size() > 0){
@@ -172,6 +172,17 @@ public class CommonController {
                         }
                     }
                 }
+            }
+
+            int i  = 0;
+            for(DataType dataType : dataTypes){
+                Map<String,Object> oneLine = new HashMap<String, Object>();
+
+                String lineKeyStr = "total";
+                oneLine.put("name",dataType.getTypeName());
+
+                List<Double> oneLineData = new ArrayList<Double>();
+                TreeMap<MyTimeDTO,String> timeDatas = cacheDatas.get(i);
 
                 //当没有分时间段查询的时候，默认显示的数据数量
                 if(isDefaultQuery && categories.size() > DEFAULT_SHOW_COUNT){
@@ -218,7 +229,7 @@ public class CommonController {
                 List<Double> oneLineData = new ArrayList<Double>();
 
                 //生成categories
-                if(timeDatas.size() > 0){
+                if(timeDatas.size() > 0 && i == 0){
                     for(Map.Entry<MyTimeDTO,String> entry : timeDatas.entrySet()) {
                         if (isDefaultQuery) {
                             categories.add(entry.getKey());
