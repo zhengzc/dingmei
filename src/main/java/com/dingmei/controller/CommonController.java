@@ -161,7 +161,7 @@ public class CommonController {
                 Map<MyTimeDTO,String> timeDatas = this.macroService.queryDataOneColumn(dataType.getDataType(),dataType.getTimeStyle(),lineKeyStr);
 
                 //获取categories列表
-                if(timeDatas.size() > 0 && i == 0){
+                if(timeDatas.size() > 0){
                     for(Map.Entry<MyTimeDTO,String> entry : timeDatas.entrySet()){
                         if (isDefaultQuery) {
                             categories.add(entry.getKey());
@@ -218,7 +218,7 @@ public class CommonController {
                 List<Double> oneLineData = new ArrayList<Double>();
 
                 //生成categories
-                if(timeDatas.size() > 0 && i == 0){
+                if(timeDatas.size() > 0){
                     for(Map.Entry<MyTimeDTO,String> entry : timeDatas.entrySet()) {
                         if (isDefaultQuery) {
                             categories.add(entry.getKey());
