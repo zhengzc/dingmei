@@ -26,7 +26,7 @@ public class MybatisTest extends BaseTest {
 
     @Test
     public void testQueryDataCommon(){
-        List<Map<String,Object>> data =  dataMapper.queryDataCommon("1","param1,param2");
+        List<Map<String,Object>> data =  dataMapper.queryDataCommonWithDate("1", "param1,param2");
 
         System.out.println(JSONObject.toJSONString(data));
     }

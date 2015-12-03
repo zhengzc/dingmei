@@ -14,6 +14,7 @@ import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -105,7 +106,7 @@ public class CommonController {
             List<String> colNames = columnNames;
             commonTableVO.setColumnName(colNames);
 
-            List<Map<String,Object>> datas = this.macroService.queryDataCommon(dataType.getDataType(),columnKeys);
+            List<Map<String,Object>> datas = this.macroService.queryDataCommonWithDate(dataType.getDataType(), columnKeys);
             List<List<String>> rows = new ArrayList<List<String>>();
             for(Map<String,Object> map : datas){
                 List<String> row = new ArrayList<String>();
@@ -292,6 +293,63 @@ public class CommonController {
         //处理一下选中节点
         String selectNode = request.getParameter("selectNode");
         mv.getModel().put("selectNode",selectNode != null ? selectNode : -1);
+        return mv;
+    }
+
+    @RequestMapping("page2")
+    public ModelAndView page2(WebRequest request){
+        ModelAndView mv = new ModelAndView();
+        String groupId = request.getParameter("id");
+
+        DataGroup dataGroup = this.macroService.loadDataGroup(groupId);
+
+        List<DataType> dataTypes = this.macroService.queryDataTypes(dataGroup.getGroupId());
+
+        //默认这种的只读取一个表格
+        DataType dataType = dataTypes.get(0);
+
+        String[] columNames = dataType.getColName().split(",");
+        String[] colKeys = dataType.getColKey().split(",");
+        List<Map<String,Object>> datas = this.macroService.queryDataCommon(dataType.getDataType(),colKeys);
+
+        Map<String,Object> table = new HashMap<String, Object>();
+        table.put("columnName",columNames);
+        table.put("title",dataGroup.getGroupName());
+
+//        Map<String,Object> columnChart = new HashMap<String, Object>();//构建饼状图
+//        List<String> categories = Arrays.asList(columNames);
+//        List<Map<String,Object>> series = new ArrayList<Map<String, Object>>();
+
+        List<List<String>> rows = new ArrayList<List<String>>();
+        for(int i  = 0 ; i < datas.size() ; i++){
+            Map<String,Object> tmp = datas.get(i);
+            List<String> row = new ArrayList<String>();//表格一行
+//            Map<String,Object> one = new HashMap<String, Object>();//饼状图一条数据
+
+            for(int j = 0 ; j < colKeys.length ; j++){
+
+                String value = (String)tmp.get(colKeys[j]);
+                row.add(value);
+                if(j == 0){
+//                    one.put("name",value);
+                }
+            }
+            rows.add(row);
+        }
+
+        table.put("datas",rows);
+
+
+        mv.setViewName("page/commonQuery2.ftl");
+        mv.getModel().put("table",table);
+        mv.getModel().put("description",dataGroup.getDescription());
+        mv.getModel().put("analysis",dataGroup.getAnalysis());
+        mv.getModel().put("groupId",dataGroup.getGroupId());
+
+        //处理一下选中节点
+        String selectNode = request.getParameter("selectNode");
+        mv.getModel().put("selectNode",selectNode != null ? selectNode : -1);
+
         return mv;
     }
 

@@ -78,9 +78,12 @@ public class IndexPageController {
                     if("c".equals(menu.getMenuType())) {
                         tmp.put("urlType","c");
                         tmp.put("url", "/common/page?id=" + menu.getPath());
-                    }else if("l".equals(menu.getMenuType())){
-                        tmp.put("urlType","l");
-                        tmp.put("url",menu.getPath());
+                    }else if("l".equals(menu.getMenuType())) {
+                        tmp.put("urlType", "l");
+                        tmp.put("url", menu.getPath());
+                    }else if("c2".equals(menu.getMenuType())){
+                        tmp.put("urlType","c2");
+                        tmp.put("url","/common/page2?id=" + menu.getPath());
                     }else{
                         tmp.put("urlType","d");
                         tmp.put("url","#");

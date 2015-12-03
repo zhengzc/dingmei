@@ -32,6 +32,14 @@ public interface MacroService {
      * @param columns
      * @return
      */
+    public List<Map<String,Object>> queryDataCommonWithDate(String dataType, String[] columns);
+
+    /**
+     * 查询数据
+     * @param dataType
+     * @param columns
+     * @return
+     */
     public List<Map<String,Object>> queryDataCommon(String dataType, String[] columns);
 
     /**

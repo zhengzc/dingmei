@@ -4,10 +4,17 @@
 
 <mapper namespace="com.dingmei.dao.mapper.DataMapper">
 
-    <select id="queryDataCommon" parameterType="map" resultType="map">
+    <select id="queryDataCommonWithDate" parameterType="map" resultType="map">
       SELECT id,dataType,year,month,quarter,week,day,${column}
       FROM dm_data
       WHERE dataType = #{dataType}
       ORDER BY year,quarter,month,week,day
+    </select>
+
+    <select id="queryDataCommon" parameterType="map" resultType="map">
+        SELECT id,dataType,${column}
+        FROM dm_data
+        WHERE dataType = #{dataType}
+        ORDER BY updateTime
     </select>
 </mapper>

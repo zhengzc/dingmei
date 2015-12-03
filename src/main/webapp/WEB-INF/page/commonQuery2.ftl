@@ -1,18 +1,17 @@
 <#include "/common/baseHtml.ftl" />
-<@baseHtml localJsFiles=["javascripts/page/commonQuery.js"] remoteJsFiles=[] localCssFiles=[]>
+<@baseHtml localJsFiles=["javascripts/page/commonQuery2.js"] remoteJsFiles=[] localCssFiles=[]>
     <script type="text/javascript">
-        line = ${line};
         selectNode = parseInt(${selectNode!"0"});
+        groupId = ${groupId};
     </script>
 
     <div id="chart">
     </div>
 
-    <form id="queryForm" class="form-horizontal" action="${basepath}/common/page?id=${id}&selectNode=${selectNode}" method="get">
+    <#--<form id="queryForm" class="form-horizontal" action="${basepath}/common/page?id=${id}&selectNode=${selectNode}" method="get">
         <input class="hidden" id="id" name="id" value="${id}" />
         <input class="hidden" name="selectNode" value="${selectNode}" />
         <div class="panel-group" id="steps">
-            <!-- Step 1 -->
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h4 class="panel-title"><a data-toggle="collapse" data-parent="#steps" href="#stepOne">分段查询</a></h4>
@@ -84,15 +83,14 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form>-->
 
-    <#list tables as table>
+    <#if table??>
     <div>
         <h3>${table.title}</h3>
-        <table class="table .table-condensed">
+        <table id="dataTable" class="table .table-condensed">
             <thead>
             <tr>
-                <th>时间</th>
                 <#list table.columnName as column>
                     <th>${column}</th>
                 </#list>
@@ -113,7 +111,7 @@
             </tbody>
         </table>
     </div>
-    </#list>
+    </#if>
 
     <div class="panel panel-warning">
         <div class="panel-heading">
@@ -156,143 +154,6 @@
         </div>
     </div>
 
-    <#--
-    <div class="bg-info">
-        <small>
-            <em>&nbsp;&nbsp;&nbsp;&nbsp;${description!""}</em>
-        </small>
-    </div>
-    -->
-    <#--
-    <div>
-        <h3>M1供应量</h3>
-        <table class="table .table-condensed">
-            <thead>
-            <tr>
-                <th>时间</th>
-                <th>数量</th>
-                <th>环比</th>
-                <th>同比</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">8月份</th>
-                <td>135.69</td>
-                <td>0.27%</td>
-                <td>13.3%</td>
-            </tr>
-            <tr>
-                <th scope="row">9月份</th>
-                <td>135.69</td>
-                <td>0.27%</td>
-                <td>13.3%</td>
-            </tr>
-            <tr>
-                <th scope="row">10月份</th>
-                <td>135.69</td>
-                <td>0.27%</td>
-                <td>13.3%</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+<script type="text/javascript" src="${basepath}/resources/plugin/highcharts/data.js"></script>
 
-    <div>
-        <table class="table .table-condensed">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-
-    <div class="col-md-3">
-        <table class="table .table-condensed">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col-md-3">
-        <table class="table .table-condensed">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-    -->
 </@baseHtml>

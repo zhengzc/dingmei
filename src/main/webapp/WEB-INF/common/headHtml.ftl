@@ -51,7 +51,7 @@
 	</#list>
 
 	<#list localJsFiles as localJs>
-		<script type="text/javascript" src="${basepath}/resources/javascripts/${localJs}"></script>
+		<script type="text/javascript" src="${basepath}/resources/${localJs}"></script>
 	</#list>
 	
 	<#list remoteJsFiles as remoteJs>

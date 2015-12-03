@@ -1,11 +1,17 @@
 说明
 =====
-#通用查询配置方式
+#通用查询配置方式，折线图
 * dm_dataGroup表，配置一个页面。groupName目前用于折线图标题，副标题，纵轴说明。
         dm_dataType表，配置每个页面下的数据类型，一对多的映射。<br/>
         dataType每个表格唯一标识，typeName表格名字，timeStyle时间格式，colName和colKey分别表示显示列名称和显示列key值，注意必须一一对应，lineKey表示折线图取的字段，注意必须是col字段中定义返回的列。<br/>
         其中colName设置为common的时候表示显示总数,环比,同比的通用模式，不必设置后面两个字段。
 * dm_data表，请注意表示数量的字段total，param*必须为数字格式，否则会出现转换异常。请注意保证数据的一致性，不要缺失。
+
+#通用查询配置方式，柱状图
+* 柱状图目前支持dm_dataType表中有一条数据，就是说页面只有一个柱状图。就算是配置多个，也只会取第一条
+* dm_data表中，时间字段将不再使用，仅使用param字段
+* dm_dataType表中，colKey，colName配置方式与上面相同，注意第一个列比较特殊，表示的是表格的第一列表头，所以内容可以为中文，其他的列还是要求均为数字
+* dm_dataType表中，将不再需要timeStyle字段，时间对于柱状图来说没有意义
 
 #dataType表中的时间目前支持5中方式
 * yyyy.MM.dd    年.月.日 2015.09.18
@@ -16,8 +22,8 @@
 
 #菜单配置方式
 * dm_menu表，使用parent字段构建树形结构
-* menuType 三种类型，d表示目录，c表示通用的查询，l表示一半叶子节点
-* path配合menuType使用，d：表示目录，此节点无需跳转，path可以为空。c表示通用查询，path配置对应的groupId。l表示普通节点，path配置链接地址 eg:/common/page
+* menuType 三种类型，d表示目录，c表示通用的查询，c2表示通用查询柱状图，l表示一半叶子节点
+* path配合menuType使用，d：表示目录，此节点无需跳转，path可以为空。c，c2表示通用查询，path配置对应的groupId。l表示普通节点，path配置链接地址 eg:/common/page
 
 #mvn eclipse最佳实践
 * 配置mvn环境

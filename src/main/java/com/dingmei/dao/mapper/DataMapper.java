@@ -15,6 +15,17 @@ public interface DataMapper {
      * @param column
      * @return
      */
+    public List<Map<String,Object>> queryDataCommonWithDate(
+            @Param("dataType") String dataType,
+            @Param("column") String column
+    );
+
+    /**
+     * 查询出某种类型的数据，返回指定的列
+     * @param dataType
+     * @param column
+     * @return
+     */
     public List<Map<String,Object>> queryDataCommon(
             @Param("dataType") String dataType,
             @Param("column") String column

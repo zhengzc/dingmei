@@ -70,3 +70,20 @@ VALUES
 	(2, 2, 1),
 	(3, 2, 4);
 
+------
+INSERT INTO `dm_dataType` (`id`, `groupId`, `dataType`, `typeName`, `timeStyle`, `colName`, `totalUnit`, `colKey`, `lineKey`)
+VALUES
+	(22, '5', '8', '税收收入', '', '项目,2014年执行数,2015年预算数,预算数为上年执行数的%', '', 'param1,param2,param3,param4', '');
+
+INSERT INTO `dm_dataGroup` (`id`, `groupId`, `groupName`, `description`, `analysis`)
+VALUES
+	(5, '5', '税收', '税收相关', '分析结果');
+
+INSERT INTO `dm_data` (`id`, `dataType`, `year`, `month`, `quarter`, `week`, `day`, `total`, `huanBi`, `tongBi`, `param1`, `param2`, `param3`, `param4`, `param5`, `param6`, `param7`, `param8`, `param9`, `param10`, `param11`, `param12`, `param13`, `param14`, `param15`, `updateTime`, `operator`)
+VALUES
+	(67, '8', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '国内增值税', '21102', '21500', '101', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-12-03 12:00:00', 0),
+	(68, '8', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '国内消费税', '8906', '11200', '125', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-12-03 12:00:37', 0);
+
+INSERT INTO `dm_menu` (`id`, `name`, `menuType`, `path`, `parent`)
+VALUES
+	(6, '税收', 'c2', '5', 4);

@@ -4,7 +4,7 @@
 	<groupId>com.dingmei</groupId>
     <artifactId>dingmei</artifactId>
     <packaging>war</packaging>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
 
     <!-- 定义属性 -->
     <name>dingmei</name>

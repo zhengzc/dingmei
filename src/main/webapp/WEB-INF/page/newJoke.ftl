@@ -1,6 +1,6 @@
 <#include "/common/baseHtml.ftl" />
 <#include "/common/paging.ftl" />
-<@baseHtml localJsFiles=['newJoke.js'] remoteJsFiles=[] localCssFiles=[]>
+<@baseHtml localJsFiles=['javascripts/newJoke.js'] remoteJsFiles=[] localCssFiles=[]>
 
 	<#list jokes as joke>
 		<div class="panel panel-success">

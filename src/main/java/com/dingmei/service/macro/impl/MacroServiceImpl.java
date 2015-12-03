@@ -36,6 +36,12 @@ public class MacroServiceImpl implements MacroService {
     }
 
     @Override
+    public List<Map<String, Object>> queryDataCommonWithDate(String dataType, String[] columns) {
+        String columnStr = StringUtils.join(columns,",");
+        return this.dataMapper.queryDataCommonWithDate(dataType, columnStr);
+    }
+
+    @Override
     public List<Map<String, Object>> queryDataCommon(String dataType, String[] columns) {
         String columnStr = StringUtils.join(columns,",");
         return this.dataMapper.queryDataCommon(dataType,columnStr);
@@ -46,7 +52,7 @@ public class MacroServiceImpl implements MacroService {
         TreeMap<MyTimeDTO,Map<String,Object>> rets = new TreeMap<MyTimeDTO, Map<String, Object>>();
 
         String columnStr = StringUtils.join(columns,",");
-        List<Map<String,Object>> datas = this.dataMapper.queryDataCommon(dataType,columnStr);
+        List<Map<String,Object>> datas = this.dataMapper.queryDataCommonWithDate(dataType, columnStr);
         for(Map<String,Object> map : datas){
             MyTimeDTO myTimeDTO = new MyTimeDTO();
             myTimeDTO.setYear((Integer)map.get("year"));
@@ -64,7 +70,7 @@ public class MacroServiceImpl implements MacroService {
     public TreeMap<MyTimeDTO, String> queryDataOneColumn(String dataType,String timeStyle, String column) {
         TreeMap<MyTimeDTO, String> retMap = new TreeMap<MyTimeDTO, String>();
 
-        List<Map<String,Object>> rets = this.dataMapper.queryDataCommon(dataType,column.trim());
+        List<Map<String,Object>> rets = this.dataMapper.queryDataCommonWithDate(dataType, column.trim());
         for(Map<String,Object> map : rets){
 
             MyTimeDTO myTimeDTO = new MyTimeDTO();

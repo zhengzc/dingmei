@@ -29,24 +29,24 @@ jQuery(document).ready(function($){
         series: line.series
     });
     /*var tableData = {
-        "total_rows": "2",
-        "page_data": [{
-                "id": "111",
-                "lastname": "Diaz",
-                "firstname": "Kai",
-                "email": "odio.Aliquam@Phasellus.org",
-                "gender": "female"
-            },{
-                "id": "112",
-                "lastname": "Snider",
-                "firstname": "Nelle",
-                "email": "vulputate@nonlobortis.org",
-                "gender": "female"
-            }
-        ]
-    };
+     "total_rows": "2",
+     "page_data": [{
+     "id": "111",
+     "lastname": "Diaz",
+     "firstname": "Kai",
+     "email": "odio.Aliquam@Phasellus.org",
+     "gender": "female"
+     },{
+     "id": "112",
+     "lastname": "Snider",
+     "firstname": "Nelle",
+     "email": "vulputate@nonlobortis.org",
+     "gender": "female"
+     }
+     ]
+     };
 
-    $("#grid").bs_grid(tableData);*/
+     $("#grid").bs_grid(tableData);*/
 
     $('#queryForm').bootstrapValidator({
         message: '请注意数据的格式',

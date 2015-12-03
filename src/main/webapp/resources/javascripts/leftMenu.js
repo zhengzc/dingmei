@@ -5,10 +5,10 @@ jQuery(document).ready(function($){
             data:data,
             showBorder:false,
             onNodeSelected:function(event,data){
-                if("c" == data.urlType){
+                if("c" == data.urlType || "c2" == data.urlType){
                     window.location.href = basepath+data.url+"&selectNode="+data.nodeId;
-                }else if("l" == data.urlType){
-                    window.location.href = basepath+data.url+"?selectNode="+data.nodeId;
+                }else if("l" == data.urlType) {
+                    window.location.href = basepath + data.url + "?selectNode=" + data.nodeId;
                 }else{
 
                 }
