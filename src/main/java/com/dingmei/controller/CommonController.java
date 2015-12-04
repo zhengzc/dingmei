@@ -347,11 +347,11 @@ public class CommonController {
         for(int i = 0 ; i < lineKeys.length ; i++){
             Map<String,Object> one = new HashMap<String, Object>();//饼状图一条数据
             one.put("name",colKeyNameMap.get(lineKeys[i]));
-            List<Integer> colData = new ArrayList<Integer>();
+            List<Double> colData = new ArrayList<Double>();
 
             for(int j = 0 ; j < datas.size() ; j++){
                 Map<String,Object> tmp = datas.get(j);
-                colData.add(Integer.valueOf((String)tmp.get(lineKeys[i])));
+                colData.add(Double.valueOf((String)tmp.get(lineKeys[i])));
             }
 
             one.put("data",colData);

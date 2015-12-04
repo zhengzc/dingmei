@@ -13,10 +13,12 @@ jQuery(document).ready(function($){
             categories: columnChart.categories
         },
         yAxis: {
-            min: 0,
             title: {
                 text: columnChart.yTitle
             }
+        },
+        credits: {
+            enabled: false
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
