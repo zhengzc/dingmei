@@ -12,6 +12,7 @@
 * dm_data表中，时间字段将不再使用，仅使用param字段
 * dm_dataType表中，colKey，colName配置方式与上面相同，注意第一个列比较特殊，表示的是表格的第一列表头，所以内容可以为中文，其他的列还是要求均为数字
 * dm_dataType表中，将不再需要timeStyle字段，时间对于柱状图来说没有意义
+* dm_dataTypb表中，lineKey将控制某列是否绘制柱状图，unit将控制y轴单位
 
 #dataType表中的时间目前支持5中方式
 * yyyy.MM.dd    年.月.日 2015.09.18

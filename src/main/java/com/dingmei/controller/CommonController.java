@@ -310,34 +310,62 @@ public class CommonController {
 
         String[] columNames = dataType.getColName().split(",");
         String[] colKeys = dataType.getColKey().split(",");
+        String[] lineKeys = dataType.getLineKey().split(",");
+        //简历一个key name映射
+        Map<String,String> colKeyNameMap = new HashMap<String, String>();
+        for(int i = 0 ; i < colKeys.length ; i++){
+            colKeyNameMap.put(colKeys[i],columNames[i]);
+        }
+
+
         List<Map<String,Object>> datas = this.macroService.queryDataCommon(dataType.getDataType(),colKeys);
 
         Map<String,Object> table = new HashMap<String, Object>();
         table.put("columnName",columNames);
         table.put("title",dataGroup.getGroupName());
 
-//        Map<String,Object> columnChart = new HashMap<String, Object>();//构建饼状图
-//        List<String> categories = Arrays.asList(columNames);
-//        List<Map<String,Object>> series = new ArrayList<Map<String, Object>>();
+        Map<String,Object> columnChart = new HashMap<String, Object>();//构建饼状图
+        List<String> categories = new ArrayList<String>();
+        List<Map<String,Object>> series = new ArrayList<Map<String, Object>>();
 
         List<List<String>> rows = new ArrayList<List<String>>();
         for(int i  = 0 ; i < datas.size() ; i++){
             Map<String,Object> tmp = datas.get(i);
             List<String> row = new ArrayList<String>();//表格一行
-//            Map<String,Object> one = new HashMap<String, Object>();//饼状图一条数据
 
             for(int j = 0 ; j < colKeys.length ; j++){
-
                 String value = (String)tmp.get(colKeys[j]);
                 row.add(value);
                 if(j == 0){
-//                    one.put("name",value);
+                    categories.add(value);
                 }
             }
             rows.add(row);
         }
 
+        //构建series
+        for(int i = 0 ; i < lineKeys.length ; i++){
+            Map<String,Object> one = new HashMap<String, Object>();//饼状图一条数据
+            one.put("name",colKeyNameMap.get(lineKeys[i]));
+            List<Integer> colData = new ArrayList<Integer>();
+
+            for(int j = 0 ; j < datas.size() ; j++){
+                Map<String,Object> tmp = datas.get(j);
+                colData.add(Integer.valueOf((String)tmp.get(lineKeys[i])));
+            }
+
+            one.put("data",colData);
+            series.add(one);
+        }
+
+        columnChart.put("categories",categories);
+        columnChart.put("series",series);
+        columnChart.put("yTitle",dataType.getTotalUnit());
+        columnChart.put("title",dataGroup.getGroupName());
+
+
         table.put("datas",rows);
+        mv.getModel().put("columnChart", JSONObject.toJSONString(columnChart));
 
 
         mv.setViewName("page/commonQuery2.ftl");

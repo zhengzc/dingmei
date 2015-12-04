@@ -1,26 +1,38 @@
 jQuery(document).ready(function($){
     $('#chart').highcharts({
-        data: {
-            table: document.getElementById('dataTable')
-        },
         chart: {
             type: 'column'
         },
         title: {
-            text: 'Data extracted from a HTML table in the page'
+            text: columnChart.title
+        },
+        /*subtitle: {
+            text: 'Source: WorldClimate.com'
+        },*/
+        xAxis: {
+            categories: columnChart.categories
         },
         yAxis: {
-            allowDecimals: false,
+            min: 0,
             title: {
-                text: 'Units'
+                text: columnChart.yTitle
             }
         },
         tooltip: {
-            formatter: function() {
-                return '<b>'+ this.series.name +'</b><br/>'+
-                    this.y +' '+ this.x;
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
             }
-        }
+        },
+        series: columnChart.series
     });
     /*var tableData = {
         "total_rows": "2",

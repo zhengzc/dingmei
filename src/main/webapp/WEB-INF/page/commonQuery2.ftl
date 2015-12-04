@@ -3,6 +3,7 @@
     <script type="text/javascript">
         selectNode = parseInt(${selectNode!"0"});
         groupId = ${groupId};
+        columnChart = ${columnChart};
     </script>
 
     <div id="chart">

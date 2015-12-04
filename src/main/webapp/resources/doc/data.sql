@@ -73,7 +73,7 @@ VALUES
 ------
 INSERT INTO `dm_dataType` (`id`, `groupId`, `dataType`, `typeName`, `timeStyle`, `colName`, `totalUnit`, `colKey`, `lineKey`)
 VALUES
-	(22, '5', '8', '税收收入', '', '项目,2014年执行数,2015年预算数,预算数为上年执行数的%', '', 'param1,param2,param3,param4', '');
+	(22, '5', '8', '税收收入', '', '项目,2014年执行数,2015年预算数,预算数为上年执行数的%', '万亿', 'param1,param2,param3,param4', 'param2,param3');
 
 INSERT INTO `dm_dataGroup` (`id`, `groupId`, `groupName`, `description`, `analysis`)
 VALUES
