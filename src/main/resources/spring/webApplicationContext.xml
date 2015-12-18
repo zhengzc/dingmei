@@ -86,4 +86,6 @@
 		
 	</mvc:annotation-driven>
 
+    <bean id="exceptionResolver" class="com.dingmei.controller.ExceptionHandler"/>
+
 </beans>
