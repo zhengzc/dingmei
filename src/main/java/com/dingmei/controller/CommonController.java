@@ -406,5 +406,33 @@ public class CommonController {
 
         return ret;
     }
+    
+    
+    
+    @RequestMapping("/addData")
+    @ResponseBody
+    public Object addData(HttpServletRequest request){
+        Map<String,Object> ret = new HashMap<String, Object>();
+
+        try {
+            String groupId = ServletRequestUtils.getRequiredStringParameter(request,"id");
+            String ad = ServletRequestUtils.getRequiredStringParameter(request,"addData");
+            
+
+            System.out.println("--------------------------"+ad);
+            ret.put("code",200);
+        } catch (ServletRequestBindingException e) {
+            logger.error(e.getMessage(),e);
+            ret.put("code",500);
+            ret.put("msg","参数错误");
+            return ret;
+        } catch (Exception e){
+            logger.error(e.getMessage(), e);
+            ret.put("code",500);
+            return ret;
+        }
+
+        return ret;
+    }
 
 }
