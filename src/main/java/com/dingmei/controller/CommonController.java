@@ -75,6 +75,9 @@ public class CommonController {
         //是否为通用的查询方式
         Boolean isCommon = false;
 
+        List<String> colNames = null;
+        List<String> colKeys = null;
+
         //构建表格
         List<DataType> dataTypes = this.macroService.queryDataTypes(groupId);
         for(DataType dataType : dataTypes){
@@ -103,8 +106,14 @@ public class CommonController {
 
             CommonTableVO commonTableVO = new CommonTableVO();
             commonTableVO.setTitle(dataType.getTypeName());
-            List<String> colNames = columnNames;
-            commonTableVO.setColumnName(colNames);
+            commonTableVO.setColumnName(columnNames);
+            commonTableVO.setDataType(dataType.getDataType());
+
+            //因每种类型的查询 colKeys 和 colNames都是一致的
+            if(colKeys == null){
+                colKeys = Arrays.asList(columnKeys);
+                colNames = columnNames;
+            }
 
             List<Map<String,Object>> datas = this.macroService.queryDataCommonWithDate(dataType.getDataType(), columnKeys);
             List<List<String>> rows = new ArrayList<List<String>>();
@@ -289,6 +298,8 @@ public class CommonController {
         mv.getModel().put("id",groupId);
         mv.getModel().put("description", StringEscapeUtils.escapeHtml4(dataGroup.getDescription().trim()));
         mv.getModel().put("analysis",StringEscapeUtils.escapeHtml4(dataGroup.getAnalysis().trim()));
+        mv.getModel().put("colKeys",colKeys);
+        mv.getModel().put("colNames",colNames);
 
         //处理一下选中节点
         String selectNode = request.getParameter("selectNode");

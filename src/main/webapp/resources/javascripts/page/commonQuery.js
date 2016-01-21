@@ -185,4 +185,10 @@ jQuery(document).ready(function($){
             }
         });
     });
+
+    $(".addBtn").bind("click",function(){
+        $("#dataType").val($(this).attr("my-dataType"));
+
+        $("#myModal1").modal();
+    })
 });

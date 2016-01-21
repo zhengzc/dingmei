@@ -90,7 +90,7 @@
     <div>
         <h3>${table.title}
         	<@dataRight roles="u2" >
-            <button type="button" id="addBtn" class="btn btn-xs pull-right" aria-label="Left Align" data-toggle="modal" data-target="#myModal1">
+            <button type="button" name="addBtn" class="btn btn-xs pull-right addBtn" aria-label="Left Align" my-dataType="${table.dataType}">
                 <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
             </button>
             </@dataRight>
@@ -164,65 +164,65 @@
     
     
     <!-- 新增数据 -->
-   	<form id="queryForm" class="form-horizontal" action="${basepath}/common/addData" method="post">
-   		<input class="hidden" id="id" name="id" value="${id}" />
-	    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	        <div class="modal-dialog" role="document">
-	            <div class="modal-content">
-	                <div class="modal-header">
-	                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	                    <h4 class="modal-title" id="myModalLabel">请编辑内容</h4>
-	                </div>
-	                
-	                
-	                <div class="modal-body">
-                        <label for="addTime" class="col-sm-2 control-label">时间</label>
-                        <#list timeKeys as tk>
-                            <#if tk == "year">
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control" id="addYear" name="addYear" placeholder="年" maxlength="4">
-                                </div>
-                            <#elseif tk == "quarter">
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control" id="addQuarter" name="addQuarter" placeholder="季度" maxlength="1">
-                                </div>
-                            <#elseif tk == "month">
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control" id="addMonth" name="addMonth" placeholder="月份" maxlength="2">
-                                </div>
-                            <#elseif tk == "week">
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control" id="addWeek" name="addWeek" placeholder="星期" maxlength="2">
-                                </div>
-                            <#elseif tk == "day">
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control" id="addDay" name="addDay" placeholder="日" maxlength="2">
-                                </div>
-                            </#if>
-                        </#list>
-                       <div> 
-                       <#list tables as table>
-				           <#list table.columnName as column>
-				            <label for="addTime" class="col-sm-2 control-label">${column}</label>
-					           	<div class="col-sm-2">
-		                              <input type="text" class="form-control" id="addData" name="addData">
-								</div>
-			                </#list>
-		                </#list>
-		                </div>
-                	 </div>       
-	                
-	                
-	                
-	                <div class="alert alert-danger hidden" id="errMsg" role="alert"></div>
-	                <div class="modal-footer">
-	                    <button type="submit" class="btn btn-info btn-sm" value="提交">提交</button>
-                        <button type="reset" class="btn btn-default btn-sm" value="重置">重置</button>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-    </from>
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <form id="queryForm" class="form-horizontal" action="${basepath}/common/addData" method="post">
+            <input class="hidden" id="id" name="id" value="${id}" />
+            <input class="hidden" id="dataType" name="dataType" value=""/>
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">请编辑内容</h4>
+                        </div>
+
+
+                        <div class="modal-body">
+                            <label for="addTime" class="col-sm-2 control-label">时间</label>
+                            <#list timeKeys as tk>
+                                <#if tk == "year">
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="addYear" name="addYear" placeholder="年" maxlength="4">
+                                    </div>
+                                <#elseif tk == "quarter">
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="addQuarter" name="addQuarter" placeholder="季度" maxlength="1">
+                                    </div>
+                                <#elseif tk == "month">
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="addMonth" name="addMonth" placeholder="月份" maxlength="2">
+                                    </div>
+                                <#elseif tk == "week">
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="addWeek" name="addWeek" placeholder="星期" maxlength="2">
+                                    </div>
+                                <#elseif tk == "day">
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="addDay" name="addDay" placeholder="日" maxlength="2">
+                                    </div>
+                                </#if>
+                            </#list>
+                            <div>
+                               <#list 0..colNames?size-1 as i>
+                                    <label for="${colKeys[i]}" class="col-sm-2 control-label">${colNames[i]}</label>
+                                    <div class="col-sm-2">
+                                          <input type="text" class="form-control" id="${colKeys[i]}" name="${colKeys[i]}">
+                                    </div>
+                                </#list>
+                            </div>
+                         </div>
+
+
+
+                        <div class="alert alert-danger hidden" id="errMsg" role="alert"></div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info btn-sm" value="提交">提交</button>
+                            <button type="reset" class="btn btn-default btn-sm" value="重置">重置</button>
+                        </div>
+                    </div>
+                </div>
+
+        </form>
+    </div>
 
     <#--
     <div class="bg-info">

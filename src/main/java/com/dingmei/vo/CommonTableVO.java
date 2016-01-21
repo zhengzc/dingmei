@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class CommonTableVO {
     private String title;
+    private String dataType;
     private List<String> columnName;
     private List<List<String>> datas;
 
@@ -33,5 +34,13 @@ public class CommonTableVO {
 
     public void setDatas(List<List<String>> datas) {
         this.datas = datas;
+    }
+
+    public String getDataType() {
+        return dataType;
+    }
+
+    public void setDataType(String dataType) {
+        this.dataType = dataType;
     }
 }
