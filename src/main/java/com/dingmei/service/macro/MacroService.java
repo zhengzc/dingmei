@@ -63,4 +63,6 @@ public interface MacroService {
      * @return
      */
     public Boolean updateDataGroupAnalysis(String groupId,String analysis);
+
+    public Boolean insertData(String groupId, String dataType, String[] data,String[] dataName);
 }

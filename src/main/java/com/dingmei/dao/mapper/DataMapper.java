@@ -30,4 +30,13 @@ public interface DataMapper {
             @Param("dataType") String dataType,
             @Param("column") String column
     );
+    
+    
+    
+    /**
+     * 插入新数据
+     * @param groupId
+     * @param dataType
+     */ 
+    public int insertData(@Param("id")String id,@Param("dataType")String dataType,@Param("data") String data,@Param("dataName") String dataName);
 }
