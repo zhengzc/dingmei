@@ -424,14 +424,12 @@ public class CommonController {
     @ResponseBody
     public Object addData(HttpServletRequest request){
         Map<String,Object> ret = new HashMap<String, Object>();
-<<<<<<< HEAD
-=======
         ModelAndView mv = new ModelAndView();
         String id;
         try {
             id = ServletRequestUtils.getRequiredStringParameter(request,"id");
             String dataType = ServletRequestUtils.getRequiredStringParameter(request,"dataType");
-            System.out.println("11111111111111111111111111111"+dataType);
+            logger.debug("11111111111111111111111111111,dataType:{}",dataType);
             String year=(request.getParameter("addYear")!= null?ServletRequestUtils.getRequiredStringParameter(request, "addYear").trim():null);
             String quarter=(request.getParameter("addQuarter")!= null?ServletRequestUtils.getRequiredStringParameter(request, "addQuarter").trim():null);
             String month=(request.getParameter("addMonth")!= null?ServletRequestUtils.getRequiredStringParameter(request, "addMonth").trim():null);
@@ -480,9 +478,6 @@ public class CommonController {
             //用String的split方法分割，得到数组
             String[] colKeys = sb.toString().split(";");
             String[] colNames = sbName.toString().split(";");
->>>>>>> origin/work
-
-        try {
             String groupId = ServletRequestUtils.getRequiredStringParameter(request,"id");
             String ad = ServletRequestUtils.getRequiredStringParameter(request,"addData");
             
