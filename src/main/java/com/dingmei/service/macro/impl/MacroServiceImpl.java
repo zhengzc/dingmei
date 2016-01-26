@@ -93,4 +93,14 @@ public class MacroServiceImpl implements MacroService {
         int count = this.dataGroupMapper.updateDataGroupAnalysis(groupId,analysis);
         return count == 1 ? true : false;
     }
+    
+    
+    
+    @Override
+    public Boolean insertData(String groupId, String dataType,String[] data,String[] dataName) {
+    	String columnStr = StringUtils.join(data,",");
+    	String columnName = StringUtils.join(dataName,",");
+        int count = this.dataMapper.insertData(groupId,dataType,columnStr,columnName);
+        return count == 1 ? true : false;
+    }
 }

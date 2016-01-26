@@ -17,4 +17,11 @@
         WHERE dataType = #{dataType}
         ORDER BY updateTime
     </select>
+    
+    
+    <insert id="insertData" parameterType="map">
+        insert dm_data (dataType,${dataName})
+         
+        values(#{dataType},${data})
+    </insert>
 </mapper>
