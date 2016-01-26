@@ -424,6 +424,63 @@ public class CommonController {
     @ResponseBody
     public Object addData(HttpServletRequest request){
         Map<String,Object> ret = new HashMap<String, Object>();
+<<<<<<< HEAD
+=======
+        ModelAndView mv = new ModelAndView();
+        String id;
+        try {
+            id = ServletRequestUtils.getRequiredStringParameter(request,"id");
+            String dataType = ServletRequestUtils.getRequiredStringParameter(request,"dataType");
+            System.out.println("11111111111111111111111111111"+dataType);
+            String year=(request.getParameter("addYear")!= null?ServletRequestUtils.getRequiredStringParameter(request, "addYear").trim():null);
+            String quarter=(request.getParameter("addQuarter")!= null?ServletRequestUtils.getRequiredStringParameter(request, "addQuarter").trim():null);
+            String month=(request.getParameter("addMonth")!= null?ServletRequestUtils.getRequiredStringParameter(request, "addMonth").trim():null);
+            String week=(request.getParameter("addWeek")!= null?ServletRequestUtils.getRequiredStringParameter(request, "addWeek").trim():null);
+            String day=(request.getParameter("addDay")!= null?ServletRequestUtils.getRequiredStringParameter(request, "addDay").trim():null);
+            
+            String total=(request.getParameter("total")!= null?ServletRequestUtils.getRequiredStringParameter(request, "total").trim():null);
+            String tongBi=(request.getParameter("tongBi")!=null?ServletRequestUtils.getRequiredStringParameter(request, "tongBi").trim():null);
+            String huanBi=(request.getParameter("huanBi")!=null?ServletRequestUtils.getRequiredStringParameter(request, "hongBi").trim():null);
+            String param1=(request.getParameter("param1")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param1").trim():null);
+            String param2=(request.getParameter("param2")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param2").trim():null);
+            String param3=(request.getParameter("param3")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param3").trim():null);
+            String param4=(request.getParameter("param4")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param4").trim():null);
+            String param5=(request.getParameter("param5")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param5").trim():null);
+            String param6=(request.getParameter("param6")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param6").trim():null);
+            String param7=(request.getParameter("param7")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param7").trim():null);
+            String param8=(request.getParameter("param8")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param8").trim():null);
+            String param9=(request.getParameter("param9")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param9").trim():null);
+            String param10=(request.getParameter("param10")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param10").trim():null);
+            String param11=(request.getParameter("param11")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param11").trim():null);
+            String param12=(request.getParameter("param12")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param12").trim():null);
+            String param13=(request.getParameter("param13")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param13").trim():null);
+            String param14=(request.getParameter("param14")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param14").trim():null);
+            String param15=(request.getParameter("param15")!= null?ServletRequestUtils.getRequiredStringParameter(request, "param15").trim():null);
+
+
+//            String dataType="1";
+            String[] temp={year,quarter,month,week,day,total,tongBi,huanBi,param1,param2,param3,param4,param5,param6,param7,param8,param9,param10,param11,param12,param13,param14,param15};
+            String[] tempName={"year","quarter","month","week","day","total","tongBi","huanBi","param1","param2","param3","param4","param5","param6","param7","param8","param9","param10","param11","param12","param13","param14","param15"};
+
+            StringBuffer sb = new StringBuffer();
+            StringBuffer sbName = new StringBuffer();
+
+            //colKeys
+            for(int i=0;i<temp.length;i++){
+            	if("".equals(temp[i])||null==temp[i]) {
+                    continue;
+                }
+                sb.append(temp[i]);
+                sbName.append(tempName[i]);
+                if(i != temp.length - 1) {
+                    sb.append(";");
+                    sbName.append(";");
+                }
+            }
+            //用String的split方法分割，得到数组
+            String[] colKeys = sb.toString().split(";");
+            String[] colNames = sbName.toString().split(";");
+>>>>>>> origin/work
 
         try {
             String groupId = ServletRequestUtils.getRequiredStringParameter(request,"id");
