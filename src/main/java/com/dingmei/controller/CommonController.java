@@ -75,7 +75,7 @@ public class CommonController {
         //是否为通用的查询方式
         Boolean isCommon = false;
 
-        List<String> colNames = null;
+        List<String> colNames = new ArrayList<String>();
         List<String> colKeys = null;
 
         //构建表格
@@ -90,12 +90,15 @@ public class CommonController {
                 columnNameStr = DEFAULT_COLUMN_NAME;
                 columnKeyStr = DEFAULT_COLUMN_KEY;
                 columnNames.add(dataType.getTotalUnit() != null ? dataType.getTotalUnit() : "总量");
+                colNames.add("总量");
                 isCommon = true;
             }else{
                 columnNameStr = dataType.getColName();
                 columnKeyStr = dataType.getColKey();
             }
-            columnNames.addAll(Arrays.asList(columnNameStr.split(",")));
+            List<String> tmp = Arrays.asList(columnNameStr.split(","));
+            columnNames.addAll(tmp);
+            colNames.addAll(tmp);
 
             //列key
             String[] columnKeys = columnKeyStr.split(",");
@@ -110,10 +113,7 @@ public class CommonController {
             commonTableVO.setDataType(dataType.getDataType());
 
             //因每种类型的查询 colKeys 和 colNames都是一致的
-            if(colKeys == null){
-                colKeys = Arrays.asList(columnKeys);
-                colNames = columnNames;
-            }
+            colKeys = Arrays.asList(columnKeys);
 
             List<Map<String,Object>> datas = this.macroService.queryDataCommonWithDate(dataType.getDataType(), columnKeys);
             List<List<String>> rows = new ArrayList<List<String>>();
