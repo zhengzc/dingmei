@@ -49,3 +49,6 @@
 * isRememberMe()	如果用户是通过remember-me 登录的用户 就会返回 true
 * isAuthenticated()	如果用户不是匿名用户就会返回true
 * isFullyAuthenticated()	如果用户不是通过匿名也不是通过remember-me登录的用户时， 就会返回true。
+
+#生产环境页面报错时候快速查看
+当页面报错的时候，可以通过在主路径下增加一个名为debug的cookie，报错页面会打印出异常栈信息。
